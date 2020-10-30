@@ -16,7 +16,7 @@ using namespace juce;
 START_JUCE_APPLICATION (DAWnApplication)
 
 
-void DAWnApplication::parseCommandLine(const String& commandLine)
+void DAWnApplication::parseCommandLine(const String& /* commandLine */)
 {
     // TODO implement autoload of songs by command line parameters
 }
@@ -40,7 +40,7 @@ void DAWnApplication::systemRequestedQuit()
     quit();
 }
 
-void DAWnApplication::anotherInstanceStarted(const juce::String& commandLine)
+void DAWnApplication::anotherInstanceStarted(const juce::String& /* commandLine */)
 {
     // When another instance of the app is launched while this one is running,
     // this method is invoked, and the commandLine parameter tells you what
