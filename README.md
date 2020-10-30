@@ -1,9 +1,9 @@
 # DAWn
 DAWn stands for Digital Audio Workstation Nextgen.
 
-This very ambitious project is an attempt to learn about digital audio workstation development with a concrete motivation.
+This ambitious project is an attempt to learn about digital audio workstation development with a concrete motivation.
 
-It does not do much for now that you can really use yet, 
+It does not do much that you can really use yet, 
 so if you'd like to use a great already developed DAW that reuses the tracktion_engine and that is currently released, check this out:
 https://www.tracktion.com/products/waveform-pro
 
