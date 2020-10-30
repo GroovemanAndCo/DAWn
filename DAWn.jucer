@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="akTcEJ" name="DAWn" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              companyName="Grooveman And Co" companyCopyright="Copyright Fabien 2020 (https://github.com/fab672000). All rights reserved."
+              companyWebsite="https://github.com/fab672000" companyEmail="fabien@onepost.net"
+              headerPath="C:\SDKs\ASIOSDK2.3\common&#10;../../Source" cppLanguageStandard="17">
+  <MAINGROUP id="QJAxII" name="DAWn">
+    <GROUP id="{EC53D676-666E-EBF9-A8C0-A2B98200A763}" name="Source">
+      <FILE id="lGoN2z" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="Xnvt7D" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_PLUGINHOST_VST="1" JUCE_PLUGINHOST_VST3="1"
+               JUCE_PLUGINHOST_AU="1" JUCE_USE_CAMERA="1"/>
+  <EXPORTFORMATS>
+    <VS2019 targetFolder="Builds/VisualStudio2019">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="DAWn"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="DAWn"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_core" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_dsp" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_events" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_video" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="tracktion_engine" path="../tracktion_engine/modules"/>
+        <MODULEPATH id="juce_osc" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="tracktion_graph" path="../tracktion_engine/modules"/>
+      </MODULEPATHS>
+    </VS2019>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="DAWn"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="DAWn"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_audio_basics" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_core" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_dsp" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_events" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="juce_video" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="tracktion_engine" path="../tracktion_engine/modules"/>
+        <MODULEPATH id="juce_osc" path="../tracktion/modules/juce/modules"/>
+        <MODULEPATH id="tracktion_graph" path="../tracktion_engine/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="tracktion_engine" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+    <MODULE id="tracktion_graph" showAllCode="1" useLocalCopy="0" useGlobalPath="0"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <WINDOWS buildEnabled="0"/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
