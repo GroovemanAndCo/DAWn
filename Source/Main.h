@@ -17,12 +17,14 @@
 
 #pragma once
 #include <JuceHeader.h>
-#include <JuceHeader.h>
 #include "MainWindow.h"
 
+/**
+ * The main DAWn JUCEApplication derived class.
+ */
 class DAWnApplication : public juce::JUCEApplication
 {
-    void parseCommandLine(const juce::String& commandLine);
+    void parseCommandLine(const juce::String& commandLine); ///< parse command line arguments 
 
 public:
     //==============================================================================
@@ -30,16 +32,22 @@ public:
 
     const juce::String getApplicationName() override { return ProjectInfo::projectName; }
     const juce::String getApplicationVersion() override { return ProjectInfo::versionString; }
+	
     bool moreThanOneInstanceAllowed() override { return true; }
 
-    /// Application initialization code
+    /// Parse command line parameters and then create the main window
     void initialise(const juce::String& commandLine) override;
 
-    /// Application shutdown code
+    /// Destroy the mainWindow 
     void shutdown() override;
     //==============================================================================
-    void systemRequestedQuit() override;
-    void anotherInstanceStarted(const juce::String& commandLine) override;
+    void systemRequestedQuit() override; ///< called when system asks us to quit, reply with calling quit() if ok to quit
+
+	/** When another instance of the app is launched while this one is running,
+     *  this method is invoked, and the commandLine parameter tells you what the other instance's command-line arguments were.
+     *  can be used to load a new song  when the user double clicks on a song
+     */
+    void anotherInstanceStarted(const juce::String& commandLine) override; //
 
 private:
     std::unique_ptr<MainWindow> mainWindow;
