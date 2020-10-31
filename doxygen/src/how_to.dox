@@ -1,0 +1,19 @@
+/*! @page how_to How to build DAWn
+
+1. Prerequisites:
+  - You will need to install the tracktion engine full distribution from:
+	https://github.com/Tracktion/tracktion_engine
+  - You will also need on Windows Visual studio 2019 Community or better
+  - On MacOSX, you'll need to use XCode 11.3 or better.
+  - On Linux, you'll need to use ... [TODO].
+	
+  - The DAWn app has to be located under a sibling folder of the tracktion_engine as an example:
+  ./tracktion_engine/
+  ./DAWn/
+
+2. Build:
+ Go the Build folder and choose an OS build project that matches your current OS
+ 
+3. Test and then start to contribute !
+
+*/

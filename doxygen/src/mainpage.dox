@@ -1,0 +1,13 @@
+/**
+@mainpage
+DAWn Open-source digital workstation software.
+DAWn reuses fundations from the tracktion engine:
+see https://github.com/Tracktion/tracktion_engine
+and https://juce.com/
+
+@image html logo.png
+
+@par Table of Contents
+  - @ref introduction
+  - @ref how_to
+*/
