@@ -5,12 +5,11 @@ DAWn stands for Digital Audio Workstation Next-gen.
 
 This ambitious project is an attempt to learn about digital audio workstation development with a concrete motivation.
 
-It does not do much that you can really use yet, <br/>
-so if you'd like to use a great already developed DAW that reuses the tracktion_engine and that is currently released,
+It does not do much that you can really use yet, so if you'd like to use an already commercialized developed DAW that reuses the tracktion_engine and that is currently released,
  check this out: <br/>
 https://www.tracktion.com/products/waveform-pro
 
-Special thanks to Julian, Dave and Roland from Tracktion for making tracktion_engine available to us as well as the great underlying JUCE framework!
+Special thanks to Julian Storer, Dave Rowland and Roland Rabien from Tracktion for making tracktion_engine available to us as well as the great underlying JUCE framework!
 <br/>
 https://github.com/Tracktion/tracktion_engine
 <br/>
