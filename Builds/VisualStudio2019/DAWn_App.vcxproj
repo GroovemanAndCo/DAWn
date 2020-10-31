@@ -143,7 +143,6 @@
     <ClCompile Include="..\..\Source\PluginWindow.cpp"/>
     <ClCompile Include="..\..\Source\EngineHelpers.cpp"/>
     <ClCompile Include="..\..\Source\Components.cpp"/>
-    <ClCompile Include="..\..\Source\BinaryData.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
     <ClCompile Include="..\..\Source\MainComponent.cpp"/>
     <ClCompile Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -3899,6 +3898,7 @@
     <ClCompile Include="..\..\..\tracktion_engine\modules\tracktion_graph\tracktion_graph.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_formats.cpp"/>
@@ -3930,7 +3930,6 @@
     <ClInclude Include="..\..\Source\Main.h"/>
     <ClInclude Include="..\..\Source\EngineHelpers.h"/>
     <ClInclude Include="..\..\Source\Components.h"/>
-    <ClInclude Include="..\..\Source\BinaryData.h"/>
     <ClInclude Include="..\..\Source\MainComponent.h"/>
     <ClInclude Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
@@ -5165,9 +5164,11 @@
     <ClInclude Include="..\..\..\tracktion_engine\modules\tracktion_graph\utilities\tracktion_AudioFifo.h"/>
     <ClInclude Include="..\..\..\tracktion_engine\modules\tracktion_graph\utilities\tracktion_MidiMessageArray.h"/>
     <ClInclude Include="..\..\..\tracktion_engine\modules\tracktion_graph\tracktion_graph.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Assets\res_icons.zip"/>
     <None Include="..\..\..\tracktion\modules\juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt"/>
     <None Include="..\..\..\tracktion\modules\juce\modules\juce_audio_devices\native\oboe\readme.md"/>
     <None Include="..\..\..\tracktion\modules\juce\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

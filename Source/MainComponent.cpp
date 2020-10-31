@@ -61,7 +61,7 @@ MainComponent::MainComponent()
 
     selectionManager.addChangeListener(this);
 
-    setupButtons();
+    setupGUI();
 
     setSize(600, 400);
 }
@@ -70,4 +70,85 @@ MainComponent::~MainComponent()
 {
     tracktion_engine::EditFileOperations(*edit).save(true, true, false);
     engine.getTemporaryFileManager().getTempDirectory().deleteRecursively();
+}
+
+void MainComponent::paint(Graphics& g)
+{
+    auto col = getLookAndFeel().findColour(ResizableWindow::backgroundColourId);
+    // auto col = Colour(0x00244249);
+    g.fillAll(col);
+}
+
+void MainComponent::resized()
+{
+    const auto toolbarThickness = 32;
+
+    auto r = getLocalBounds();
+    auto w = r.getWidth() / 7;
+    auto topTool = r.removeFromTop(toolbarThickness);
+    auto topR = r.removeFromTop(30);
+
+    toolbar.setBounds( toolbar.isVertical() ? getLocalBounds().removeFromLeft(toolbarThickness) : getLocalBounds().removeFromTop(toolbarThickness));
+
+    settingsButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    pluginsButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    newEditButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    playPauseButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    recordButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    showEditButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    newTrackButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    deleteButton.setBounds(topR.removeFromLeft(w).reduced(2));
+    topR = r.removeFromTop(30);
+    editNameLabel.setBounds(topR);
+
+    if (editComponent != nullptr)
+        editComponent->setBounds(r);
+}
+
+void MainComponent::setupGUI()
+{
+    // Create and add the toolbar...
+    addAndMakeVisible(toolbar);
+
+    // And use our item factory to add a set of default icons to it...
+    toolbar.addDefaultItems(factory);
+
+    playPauseButton.onClick = [this]
+    {
+        EngineHelpers::togglePlay(*edit);
+    };
+    recordButton.onClick = [this]
+    {
+        bool wasRecording = edit->getTransport().isRecording();
+        EngineHelpers::toggleRecord(*edit);
+        if (wasRecording)
+            te::EditFileOperations(*edit).save(true, true, false);
+    };
+    newTrackButton.onClick = [this]
+    {
+        edit->ensureNumberOfAudioTracks(getAudioTracks(*edit).size() + 1);
+    };
+    deleteButton.onClick = [this]
+    {
+        auto sel = selectionManager.getSelectedObject(0);
+        if (auto clip = dynamic_cast<te::Clip*> (sel))
+        {
+            clip->removeFromParentTrack();
+        }
+        else if (auto track = dynamic_cast<te::Track*> (sel))
+        {
+            if (!(track->isMarkerTrack() || track->isTempoTrack() || track->isChordTrack()))
+                edit->deleteTrack(track);
+        }
+        else if (auto plugin = dynamic_cast<te::Plugin*> (sel))
+        {
+            plugin->deleteFromParent();
+        }
+    };
+    showWaveformButton.onClick = [this]
+    {
+        auto& evs = editComponent->getEditViewState();
+        evs.drawWaveforms = !evs.drawWaveforms.get();
+        showWaveformButton.setToggleState(evs.drawWaveforms, dontSendNotification);
+    };
 }

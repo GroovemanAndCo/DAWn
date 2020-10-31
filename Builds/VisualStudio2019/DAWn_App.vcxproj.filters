@@ -2,6 +2,9 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="DAWn\Source\Assets">
+      <UniqueIdentifier>{036E4454-8E58-73B2-8A11-449398DE6ADA}</UniqueIdentifier>
+    </Filter>
     <Filter Include="DAWn\Source">
       <UniqueIdentifier>{54966F93-4D9E-B5C4-675B-753FD77DD63F}</UniqueIdentifier>
     </Filter>
@@ -1145,9 +1148,6 @@
       <Filter>DAWn\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Components.cpp">
-      <Filter>DAWn\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BinaryData.cpp">
       <Filter>DAWn\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Main.cpp">
@@ -5026,6 +5026,9 @@
     <ClCompile Include="..\..\..\tracktion_engine\modules\tracktion_graph\tracktion_graph.cpp">
       <Filter>JUCE Modules\tracktion_graph</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_basics.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -5113,9 +5116,6 @@
       <Filter>DAWn\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Components.h">
-      <Filter>DAWn\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BinaryData.h">
       <Filter>DAWn\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\MainComponent.h">
@@ -8820,11 +8820,17 @@
     <ClInclude Include="..\..\..\tracktion_engine\modules\tracktion_graph\tracktion_graph.h">
       <Filter>JUCE Modules\tracktion_graph</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>JUCE Library Code</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>JUCE Library Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Source\Assets\res_icons.zip">
+      <Filter>DAWn\Source\Assets</Filter>
+    </None>
     <None Include="..\..\..\tracktion\modules\juce\modules\juce_audio_devices\native\oboe\CMakeLists.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\oboe</Filter>
     </None>

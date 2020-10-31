@@ -49,6 +49,8 @@
 #include "PluginWindow.h"
 
 #include "EngineHelpers.h"
+#include "TransportToolbarFactory.h"
+
 
 //==============================================================================
 class MainComponent : public juce::Component, private juce::ChangeListener
@@ -58,30 +60,8 @@ public:
     MainComponent();
     ~MainComponent();
     //==============================================================================
-    void paint(Graphics& g) override
-    {
-        g.fillAll(getLookAndFeel().findColour(ResizableWindow::backgroundColourId));
-    }
-
-    void resized() override
-    {
-        auto r = getLocalBounds();
-        int w = r.getWidth() / 7;
-        auto topR = r.removeFromTop(30);
-        settingsButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        pluginsButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        newEditButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        playPauseButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        recordButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        showEditButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        newTrackButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        deleteButton.setBounds(topR.removeFromLeft(w).reduced(2));
-        topR = r.removeFromTop(30);
-        editNameLabel.setBounds(topR);
-
-        if (editComponent != nullptr)
-            editComponent->setBounds(r);
-    }
+    void paint(Graphics& g) override;
+    void resized() override;
 
 private:
     //==============================================================================
@@ -96,47 +76,7 @@ private:
     ToggleButton showWaveformButton{ "Show Waveforms" };
 
     //==============================================================================
-    void setupButtons()
-    {
-        playPauseButton.onClick = [this]
-        {
-            EngineHelpers::togglePlay(*edit);
-        };
-        recordButton.onClick = [this]
-        {
-            bool wasRecording = edit->getTransport().isRecording();
-            EngineHelpers::toggleRecord(*edit);
-            if (wasRecording)
-                te::EditFileOperations(*edit).save(true, true, false);
-        };
-        newTrackButton.onClick = [this]
-        {
-            edit->ensureNumberOfAudioTracks(getAudioTracks(*edit).size() + 1);
-        };
-        deleteButton.onClick = [this]
-        {
-            auto sel = selectionManager.getSelectedObject(0);
-            if (auto clip = dynamic_cast<te::Clip*> (sel))
-            {
-                clip->removeFromParentTrack();
-            }
-            else if (auto track = dynamic_cast<te::Track*> (sel))
-            {
-                if (!(track->isMarkerTrack() || track->isTempoTrack() || track->isChordTrack()))
-                    edit->deleteTrack(track);
-            }
-            else if (auto plugin = dynamic_cast<te::Plugin*> (sel))
-            {
-                plugin->deleteFromParent();
-            }
-        };
-        showWaveformButton.onClick = [this]
-        {
-            auto& evs = editComponent->getEditViewState();
-            evs.drawWaveforms = !evs.drawWaveforms.get();
-            showWaveformButton.setToggleState(evs.drawWaveforms, dontSendNotification);
-        };
-    }
+    void setupGUI();
 
     void updatePlayButtonText()
     {
@@ -245,6 +185,10 @@ private:
 
         edit->restartPlayback();
     }
+    
+    juce::Toolbar toolbar;
+
+    TransportToolbarItemFactory factory;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };

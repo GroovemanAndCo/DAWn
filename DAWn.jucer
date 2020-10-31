@@ -7,6 +7,9 @@
               headerPath="C:\SDKs\ASIOSDK2.3\common&#10;../../Source" cppLanguageStandard="17">
   <MAINGROUP id="QJAxII" name="DAWn">
     <GROUP id="{EC53D676-666E-EBF9-A8C0-A2B98200A763}" name="Source">
+      <GROUP id="{90A5CF50-C1BF-8AC6-6698-D94252C37885}" name="Assets">
+        <FILE id="ILPhKv" name="res_icons.zip" compile="0" resource="1" file="Source/Assets/res_icons.zip"/>
+      </GROUP>
       <FILE id="OGd2tq" name="Utilities.h" compile="0" resource="0" file="Source/Utilities.h"/>
       <FILE id="cPpiyt" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
       <FILE id="zUZrZH" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
@@ -19,8 +22,6 @@
             file="Source/EngineHelpers.cpp"/>
       <FILE id="aAty7W" name="Components.h" compile="0" resource="0" file="Source/Components.h"/>
       <FILE id="zFWvgn" name="Components.cpp" compile="1" resource="0" file="Source/Components.cpp"/>
-      <FILE id="Asg8Rv" name="BinaryData.h" compile="0" resource="0" file="Source/BinaryData.h"/>
-      <FILE id="k10XXP" name="BinaryData.cpp" compile="1" resource="0" file="Source/BinaryData.cpp"/>
       <FILE id="lGoN2z" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="Xnvt7D" name="MainComponent.cpp" compile="1" resource="0"

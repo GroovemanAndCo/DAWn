@@ -52,6 +52,15 @@ namespace Helpers
         
         return {};
     }
+
+    inline std::unique_ptr<juce::InputStream> createZipStreamFromEmbeddedResource(const char* resourceName)
+    {
+            int resourceSize = 0;
+            auto* res = BinaryData::getNamedResource(resourceName, resourceSize);
+            auto* mstream = new juce::MemoryInputStream(res, resourceSize, true);
+            return std::unique_ptr<juce::MemoryInputStream>(mstream);
+    }
+
 }
 
 //==============================================================================
