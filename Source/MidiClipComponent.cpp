@@ -19,8 +19,8 @@ void MidiClipComponent::paint (Graphics& g)
         {
 	        const auto startBeat = mc->getStartBeat() + n->getStartBeat();
 	        const auto endBeat = mc->getStartBeat() + n->getEndBeat();
-            const auto startTime = editViewState.beatToTime (startBeat);
-            const auto endTime = editViewState.beatToTime (endBeat);
+            const auto startTime = editViewState.beatsToTime (startBeat);
+            const auto endTime = editViewState.beatsToTime (endBeat);
             
             if (auto* p = getParentComponent())
             {
