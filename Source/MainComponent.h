@@ -44,8 +44,8 @@
 #pragma once
 #include <JuceHeader.h>
 
-#include "Components.h"
 
+#include "EditComponent.h"
 #include "EngineHelpers.h"
 #include "ExtendedUIBehaviour.h"
 #include "TransportToolbarFactory.h"
@@ -59,20 +59,20 @@ public:
     MainComponent();
     ~MainComponent();
     //==============================================================================
-    void paint(Graphics& g) override;
+    void paint(juce::Graphics& g) override;
     void resized() override;
 
 private:
     //==============================================================================
-    te::Engine engine{ ProjectInfo::projectName, std::make_unique<ExtendedUIBehaviour>(), nullptr };
-    te::SelectionManager selectionManager{ engine };
-    std::unique_ptr<te::Edit> edit;
+    tracktion_engine::Engine engine{ ProjectInfo::projectName, std::make_unique<ExtendedUIBehaviour>(), nullptr };
+    tracktion_engine::SelectionManager selectionManager{ engine };
+    std::unique_ptr<tracktion_engine::Edit> edit;
     std::unique_ptr<EditComponent> editComponent;
 
-    TextButton settingsButton{ "Settings" }, pluginsButton{ "Plugins" }, newEditButton{ "New" }, playPauseButton{ "Play" },
-        showEditButton{ "Show Edit" }, newTrackButton{ "New Track" }, deleteButton{ "Delete" }, recordButton{ "Record" };
-    Label editNameLabel{ "No Edit Loaded" };
-    ToggleButton showWaveformButton{ "Show Waveforms" };
+    juce::TextButton settingsButton{ "Settings" }, pluginsButton{ "Plugins" }, newEditButton{ "New" }, playPauseButton{ "Play" },
+	    showEditButton{ "Show Edit" }, newTrackButton{ "New Track" }, deleteButton{ "Delete" }, recordButton{ "Record" };
+    juce::Label editNameLabel{ "No Edit Loaded" };
+    juce::ToggleButton showWaveformButton{ "Show Waveforms" };
 
     //==============================================================================
     void setupGUI();
@@ -89,51 +89,8 @@ private:
             recordButton.setButtonText(edit->getTransport().isRecording() ? "Abort" : "Record");
     }
 
-    void createOrLoadEdit(File editFile = {})
-    {
-        if (editFile == File())
-        {
-            FileChooser fc("New Edit", File::getSpecialLocation(File::userDocumentsDirectory), "*.tracktionedit");
-            if (fc.browseForFileToSave(true))
-                editFile = fc.getResult();
-            else
-                return;
-        }
-
-        selectionManager.deselectAll();
-        editComponent = nullptr;
-
-        if (editFile.existsAsFile())
-            edit = te::loadEditFromFile(engine, editFile);
-        else
-            edit = te::createEmptyEdit(engine, editFile);
-
-        edit->editFileRetriever = [editFile] { return editFile; };
-        edit->playInStopEnabled = true;
-
-        auto& transport = edit->getTransport();
-        transport.addChangeListener(this);
-
-        editNameLabel.setText(editFile.getFileNameWithoutExtension(), dontSendNotification);
-        showEditButton.onClick = [this, editFile]
-        {
-            te::EditFileOperations(*edit).save(true, true, false);
-            editFile.revealToUser();
-        };
-
-        createTracksAndAssignInputs();
-
-        te::EditFileOperations(*edit).save(true, true, false);
-
-        editComponent = std::make_unique<EditComponent>(*edit, selectionManager);
-        editComponent->getEditViewState().showFooters = true;
-        editComponent->getEditViewState().showMidiDevices = true;
-        editComponent->getEditViewState().showWaveDevices = false;
-
-        addAndMakeVisible(*editComponent);
-    }
-
-    void changeListenerCallback(ChangeBroadcaster* source) override
+    void createOrLoadEdit(juce::File editFile = {});
+    void changeListenerCallback(juce::ChangeBroadcaster* source) override
     {
         if (edit != nullptr && source == &edit->getTransport())
         {
@@ -143,9 +100,9 @@ private:
         else if (source == &selectionManager)
         {
             auto sel = selectionManager.getSelectedObject(0);
-            deleteButton.setEnabled(dynamic_cast<te::Clip*> (sel) != nullptr
-                || dynamic_cast<te::Track*> (sel) != nullptr
-                || dynamic_cast<te::Plugin*> (sel));
+            deleteButton.setEnabled(dynamic_cast<tracktion_engine::Clip*> (sel) != nullptr
+                || dynamic_cast<tracktion_engine::Track*> (sel) != nullptr
+                || dynamic_cast<tracktion_engine::Plugin*> (sel));
         }
     }
 
@@ -164,12 +121,12 @@ private:
 
         edit->getTransport().ensureContextAllocated();
 
-        if (te::getAudioTracks(*edit).size() == 0)
+        if (tracktion_engine::getAudioTracks(*edit).size() == 0)
         {
             int trackNum = 0;
             for (auto instance : edit->getAllInputDevices())
             {
-                if (instance->getInputDevice().getDeviceType() == te::InputDevice::physicalMidiDevice)
+                if (instance->getInputDevice().getDeviceType() == tracktion_engine::InputDevice::physicalMidiDevice)
                 {
                     if (auto t = EngineHelpers::getOrInsertAudioTrackAt(*edit, trackNum))
                     {

@@ -17,6 +17,8 @@
 
 #include "MainComponent.h"
 
+using namespace juce;
+
 MainComponent::MainComponent()
 {
     settingsButton.onClick = [this] { EngineHelpers::showAudioDeviceSettings(engine); };
@@ -33,7 +35,7 @@ MainComponent::MainComponent()
         auto v = new PluginListComponent(engine.getPluginManager().pluginFormatManager,
             engine.getPluginManager().knownPluginList,
             engine.getTemporaryFileManager().getTempFile("PluginScanDeadMansPedal"),
-            te::getApplicationSettings());
+            tracktion_engine::getApplicationSettings());
         v->setSize(800, 600);
         o.content.setOwned(v);
         o.launchAsync();
@@ -117,34 +119,38 @@ void MainComponent::setupGUI()
     {
         EngineHelpers::togglePlay(*edit);
     };
-    recordButton.onClick = [this]
+
+	recordButton.onClick = [this]
     {
         bool wasRecording = edit->getTransport().isRecording();
         EngineHelpers::toggleRecord(*edit);
         if (wasRecording)
-            te::EditFileOperations(*edit).save(true, true, false);
+            tracktion_engine::EditFileOperations(*edit).save(true, true, false);
     };
-    newTrackButton.onClick = [this]
+
+	newTrackButton.onClick = [this]
     {
         edit->ensureNumberOfAudioTracks(getAudioTracks(*edit).size() + 1);
     };
-    deleteButton.onClick = [this]
+
+	deleteButton.onClick = [this]
     {
-        auto sel = selectionManager.getSelectedObject(0);
-        if (auto clip = dynamic_cast<te::Clip*> (sel))
+        auto* sel = selectionManager.getSelectedObject(0);
+        if (auto* clip = dynamic_cast<tracktion_engine::Clip*> (sel))
         {
             clip->removeFromParentTrack();
         }
-        else if (auto track = dynamic_cast<te::Track*> (sel))
+        else if (auto* track = dynamic_cast<tracktion_engine::Track*> (sel))
         {
             if (!(track->isMarkerTrack() || track->isTempoTrack() || track->isChordTrack()))
                 edit->deleteTrack(track);
         }
-        else if (auto plugin = dynamic_cast<te::Plugin*> (sel))
+        else if (auto* plugin = dynamic_cast<tracktion_engine::Plugin*> (sel))
         {
             plugin->deleteFromParent();
         }
     };
+	
     showWaveformButton.onClick = [this]
     {
         auto& evs = editComponent->getEditViewState();
@@ -152,3 +158,47 @@ void MainComponent::setupGUI()
         showWaveformButton.setToggleState(evs.drawWaveforms, dontSendNotification);
     };
 }
+void MainComponent::createOrLoadEdit(juce::File editFile)
+{
+    if (editFile == juce::File())
+    {
+        juce::FileChooser fc("New Edit", juce::File::getSpecialLocation(juce::File::userDocumentsDirectory), "*.tracktionedit");
+        if (fc.browseForFileToSave(true))
+            editFile = fc.getResult();
+        else
+            return;
+    }
+
+    selectionManager.deselectAll();
+    editComponent = nullptr;
+
+    if (editFile.existsAsFile())
+        edit = tracktion_engine::loadEditFromFile(engine, editFile);
+    else
+        edit = tracktion_engine::createEmptyEdit(engine, editFile);
+
+    edit->editFileRetriever = [editFile] { return editFile; };
+    edit->playInStopEnabled = true;
+
+    auto& transport = edit->getTransport();
+    transport.addChangeListener(this);
+
+    editNameLabel.setText(editFile.getFileNameWithoutExtension(), juce::dontSendNotification);
+    showEditButton.onClick = [this, editFile]
+    {
+        tracktion_engine::EditFileOperations(*edit).save(true, true, false);
+        editFile.revealToUser();
+    };
+
+    createTracksAndAssignInputs();
+
+    tracktion_engine::EditFileOperations(*edit).save(true, true, false);
+
+    editComponent = std::make_unique<EditComponent>(*edit, selectionManager);
+    editComponent->getEditViewState().showFooters = true;
+    editComponent->getEditViewState().showMidiDevices = true;
+    editComponent->getEditViewState().showWaveDevices = false;
+
+    addAndMakeVisible(*editComponent);
+}
+

@@ -61,13 +61,12 @@ public:
         
         ids.add(spacerId       );
  
-        ids.add(media_backward );
+        //ids.add(media_backward );
         ids.add(media_stop     );
         ids.add(media_start    );
-        ids.add(media_pause    );
-        ids.add(media_forward);
-        ids.add(spacerId);
         ids.add(media_record   );
+        //ids.add(media_pause    );
+        //ids.add(media_forward);
 
         //ids.add(edit_copy      );
         //ids.add(edit_cut       );
@@ -91,13 +90,12 @@ public:
         
         ids.add(spacerId       );
  
-        ids.add(media_backward );
+        //ids.add(media_backward );
         ids.add(media_stop     );
         ids.add(media_start    );
-        ids.add(media_pause    );
-        ids.add(media_forward);
-        ids.add(spacerId);
         ids.add(media_record   );
+        //ids.add(media_pause    );
+        //ids.add(media_forward);
     }
 
     juce::ToolbarItemComponent* createItem(int itemId) override
@@ -127,32 +125,32 @@ public:
     }
 
 private:
-    StringArray iconNames;
-    OwnedArray<Drawable> iconsFromZipFile;
+    juce::StringArray iconNames;
+    juce::OwnedArray<juce::Drawable> iconsFromZipFile;
 
     // This is a little utility to create a button with one of the SVG images in
     // our embedded ZIP file "icons.zip"
-    ToolbarButton* createButtonFromZipFileSVG(const int itemId, const String& text, const String& filename)
+    juce::ToolbarButton* createButtonFromZipFileSVG(const int itemId, const juce::String& text, const juce::String& filename)
     {
         if (iconsFromZipFile.size() == 0)
         {
             // If we've not already done so, load all the images from the zip file..
-            ZipFile icons(Helpers::createZipStreamFromEmbeddedResource(BinaryData::namedResourceList[0]).release(), true);
+            juce::ZipFile icons(Helpers::createZipStreamFromEmbeddedResource(BinaryData::namedResourceList[0]).release(), true);
 
             for (int i = 0; i < icons.getNumEntries(); ++i)
             {
-                std::unique_ptr<InputStream> svgFileStream(icons.createStreamForEntry(i));
+                std::unique_ptr<juce::InputStream> svgFileStream(icons.createStreamForEntry(i));
 
                 if (svgFileStream.get() != nullptr)
                 {
                     iconNames.add(icons.getEntry(i)->filename);
-                    iconsFromZipFile.add(Drawable::createFromImageDataStream(*svgFileStream));
+                    iconsFromZipFile.add(juce::Drawable::createFromImageDataStream(*svgFileStream));
                 }
             }
         }
 
         auto* image = iconsFromZipFile[iconNames.indexOf(filename)];
-        return new ToolbarButton(itemId, text, image->createCopy(), {});
+        return new juce::ToolbarButton(itemId, text, image->createCopy(), {});
     }
 };
 

@@ -13,23 +13,83 @@
               file="Source/EngineHelpers.cpp"/>
       </GROUP>
       <GROUP id="{FC509DB9-C535-CC23-7A84-F4F5A204F2EA}" name="GUI">
+        <GROUP id="{CD395257-4848-4F71-552B-D6CF078708E3}" name="Edits">
+          <FILE id="A20TFG" name="EditComponent.cpp" compile="1" resource="0"
+                file="Source/EditComponent.cpp"/>
+          <FILE id="bHdY4i" name="EditComponent.h" compile="0" resource="0" file="Source/EditComponent.h"/>
+        </GROUP>
+        <GROUP id="{E6D74B5F-7A7F-DB0E-F31A-3168B4B2FD92}" name="Arrange">
+          <FILE id="jQobg3" name="PlayHeadComponent.cpp" compile="1" resource="0"
+                file="Source/PlayHeadComponent.cpp"/>
+          <FILE id="TO9DXJ" name="PlayheadComponent.h" compile="0" resource="0"
+                file="Source/PlayheadComponent.h"/>
+        </GROUP>
+        <GROUP id="{73757082-CC5C-F719-577D-64681B080523}" name="Tracks">
+          <FILE id="CQSHAF" name="TrackComponent.cpp" compile="1" resource="0"
+                file="Source/TrackComponent.cpp"/>
+          <FILE id="r2mGly" name="TrackComponent.h" compile="0" resource="0"
+                file="Source/TrackComponent.h"/>
+          <FILE id="BzPEub" name="TrackFooterComponent.cpp" compile="1" resource="0"
+                file="Source/TrackFooterComponent.cpp"/>
+          <FILE id="mnPtwj" name="TrackFooterComponent.h" compile="0" resource="0"
+                file="Source/TrackFooterComponent.h"/>
+          <FILE id="DnSqpW" name="TrackHeaderComponent.cpp" compile="1" resource="0"
+                file="Source/TrackHeaderComponent.cpp"/>
+          <FILE id="Qjxjc0" name="TrackHeaderComponent.h" compile="0" resource="0"
+                file="Source/TrackHeaderComponent.h"/>
+        </GROUP>
+        <GROUP id="{89835F1F-0250-7DFE-E85F-C897854E4779}" name="Plugins">
+          <FILE id="i8S5Wx" name="PluginComponent.cpp" compile="1" resource="0"
+                file="Source/PluginComponent.cpp"/>
+          <FILE id="EWPrql" name="PluginComponent.h" compile="0" resource="0"
+                file="Source/PluginComponent.h"/>
+          <FILE id="QJfz7P" name="PluginDefinitions.h" compile="0" resource="0"
+                file="Source/PluginDefinitions.h"/>
+          <FILE id="pX6IV6" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+          <FILE id="sM5I2f" name="PluginMenu.h" compile="0" resource="0" file="Source/PluginMenu.h"/>
+          <FILE id="fLZjkr" name="PluginTreeBase.h" compile="0" resource="0"
+                file="Source/PluginTreeBase.h"/>
+          <FILE id="JtmpRP" name="PluginTreeGroup.cpp" compile="1" resource="0"
+                file="Source/PluginTreeGroup.cpp"/>
+          <FILE id="riwphR" name="PluginTreeGroup.h" compile="0" resource="0"
+                file="Source/PluginTreeGroup.h"/>
+          <FILE id="L78V0b" name="PluginTreeItem.cpp" compile="1" resource="0"
+                file="Source/PluginTreeItem.cpp"/>
+          <FILE id="MnCPXz" name="PluginTreeItem.h" compile="0" resource="0"
+                file="Source/PluginTreeItem.h"/>
+          <FILE id="NUqwpc" name="PluginWindow.cpp" compile="1" resource="0"
+                file="Source/PluginWindow.cpp"/>
+          <FILE id="ndhFTk" name="PluginWindow.h" compile="0" resource="0" file="Source/PluginWindow.h"/>
+        </GROUP>
+        <GROUP id="{3CE0BA4B-C528-F2A6-81B8-6441C74864F4}" name="Clips">
+          <FILE id="ypzBKn" name="AudioClipComponent.cpp" compile="1" resource="0"
+                file="Source/AudioClipComponent.cpp"/>
+          <FILE id="nQcET3" name="ClipComponent.cpp" compile="1" resource="0"
+                file="Source/ClipComponent.cpp"/>
+          <FILE id="PLKNHT" name="MidiClipComponent.cpp" compile="1" resource="0"
+                file="Source/MidiClipComponent.cpp"/>
+          <FILE id="FynRwT" name="RecordingClipComponent.cpp" compile="1" resource="0"
+                file="Source/RecordingClipComponent.cpp"/>
+          <FILE id="aoMw8N" name="RecordingClipComponent.h" compile="0" resource="0"
+                file="Source/RecordingClipComponent.h"/>
+          <FILE id="RP17cc" name="MidiClipComponent.h" compile="0" resource="0"
+                file="Source/MidiClipComponent.h"/>
+          <FILE id="usCI4a" name="ClipComponent.h" compile="0" resource="0" file="Source/ClipComponent.h"/>
+          <FILE id="yYLF0r" name="AudioClipComponent.h" compile="0" resource="0"
+                file="Source/AudioClipComponent.h"/>
+        </GROUP>
+        <FILE id="oREjE4" name="EditViewState.h" compile="0" resource="0" file="Source/EditViewState.h"/>
         <FILE id="kqdrrR" name="AudioProcessorEditorComp.cpp" compile="1" resource="0"
               file="Source/AudioProcessorEditorComp.cpp"/>
-        <FILE id="aAty7W" name="Components.h" compile="0" resource="0" file="Source/Components.h"/>
-        <FILE id="zFWvgn" name="Components.cpp" compile="1" resource="0" file="Source/Components.cpp"/>
         <FILE id="XCJuqc" name="AudioProcessorEditorComp.h" compile="0" resource="0"
               file="Source/AudioProcessorEditorComp.h"/>
         <FILE id="rtvt1o" name="ExtendedUIBehaviour.h" compile="0" resource="0"
               file="Source/ExtendedUIBehaviour.h"/>
-        <FILE id="pX6IV6" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
         <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
         <FILE id="Xnvt7D" name="MainComponent.cpp" compile="1" resource="0"
               file="Source/MainComponent.cpp"/>
         <FILE id="cPpiyt" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
         <FILE id="zUZrZH" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
-        <FILE id="NUqwpc" name="PluginWindow.cpp" compile="1" resource="0"
-              file="Source/PluginWindow.cpp"/>
-        <FILE id="ndhFTk" name="PluginWindow.h" compile="0" resource="0" file="Source/PluginWindow.h"/>
       </GROUP>
       <GROUP id="{90A5CF50-C1BF-8AC6-6698-D94252C37885}" name="Assets">
         <FILE id="ILPhKv" name="res_icons.zip" compile="0" resource="1" file="Source/Assets/res_icons.zip"/>

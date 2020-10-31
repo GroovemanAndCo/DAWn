@@ -5,6 +5,21 @@
     <Filter Include="DAWn\Source\Engine">
       <UniqueIdentifier>{5881BADE-D14F-F8ED-1E80-248B392052B9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DAWn\Source\GUI\Edits">
+      <UniqueIdentifier>{C709029D-D28C-A020-19C5-772DF76C0BE4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DAWn\Source\GUI\Arrange">
+      <UniqueIdentifier>{E959AC27-26A8-68FC-BE86-D20A3C1D1B8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DAWn\Source\GUI\Tracks">
+      <UniqueIdentifier>{360ACC6C-A6DF-945D-1F65-47444FAB6306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DAWn\Source\GUI\Plugins">
+      <UniqueIdentifier>{2A782D0D-55DA-4318-6247-C13B105B0C73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DAWn\Source\GUI\Clips">
+      <UniqueIdentifier>{771DCBC7-A45C-FDF9-FE0E-40AF0B5F4AE2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="DAWn\Source\GUI">
       <UniqueIdentifier>{F7C21B88-E309-E562-C275-3BE23A3FEEA6}</UniqueIdentifier>
     </Filter>
@@ -1147,19 +1162,52 @@
     <ClCompile Include="..\..\Source\EngineHelpers.cpp">
       <Filter>DAWn\Source\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp">
-      <Filter>DAWn\Source\GUI</Filter>
+    <ClCompile Include="..\..\Source\EditComponent.cpp">
+      <Filter>DAWn\Source\GUI\Edits</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Components.cpp">
+    <ClCompile Include="..\..\Source\PlayHeadComponent.cpp">
+      <Filter>DAWn\Source\GUI\Arrange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TrackComponent.cpp">
+      <Filter>DAWn\Source\GUI\Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TrackFooterComponent.cpp">
+      <Filter>DAWn\Source\GUI\Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TrackHeaderComponent.cpp">
+      <Filter>DAWn\Source\GUI\Tracks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginComponent.cpp">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginTreeGroup.cpp">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginTreeItem.cpp">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginWindow.cpp">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AudioClipComponent.cpp">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ClipComponent.cpp">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MidiClipComponent.cpp">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\RecordingClipComponent.cpp">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp">
       <Filter>DAWn\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\MainComponent.cpp">
       <Filter>DAWn\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\MainWindow.cpp">
-      <Filter>DAWn\Source\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PluginWindow.cpp">
       <Filter>DAWn\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Main.cpp">
@@ -5112,7 +5160,58 @@
     <ClInclude Include="..\..\Source\EngineHelpers.h">
       <Filter>DAWn\Source\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\Components.h">
+    <ClInclude Include="..\..\Source\EditComponent.h">
+      <Filter>DAWn\Source\GUI\Edits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PlayheadComponent.h">
+      <Filter>DAWn\Source\GUI\Arrange</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TrackComponent.h">
+      <Filter>DAWn\Source\GUI\Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TrackFooterComponent.h">
+      <Filter>DAWn\Source\GUI\Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TrackHeaderComponent.h">
+      <Filter>DAWn\Source\GUI\Tracks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginComponent.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginDefinitions.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginEditor.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginMenu.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginTreeBase.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginTreeGroup.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginTreeItem.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginWindow.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\RecordingClipComponent.h">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MidiClipComponent.h">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ClipComponent.h">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AudioClipComponent.h">
+      <Filter>DAWn\Source\GUI\Clips</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\EditViewState.h">
       <Filter>DAWn\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\AudioProcessorEditorComp.h">
@@ -5121,16 +5220,10 @@
     <ClInclude Include="..\..\Source\ExtendedUIBehaviour.h">
       <Filter>DAWn\Source\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
-      <Filter>DAWn\Source\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\MainComponent.h">
       <Filter>DAWn\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\MainWindow.h">
-      <Filter>DAWn\Source\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PluginWindow.h">
       <Filter>DAWn\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Utilities.h">
