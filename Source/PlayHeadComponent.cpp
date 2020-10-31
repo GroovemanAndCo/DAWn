@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
-#include "PlayHeadComponent.h"
+#include "PlayheadComponent.h"
 //==============================================================================
 PlayheadComponent::PlayheadComponent (tracktion_engine::Edit& e , EditViewState& evs)
     : edit (e), editViewState (evs)

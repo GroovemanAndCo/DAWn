@@ -26,7 +26,7 @@
 #pragma once
 #include <JuceHeader.h>
 
-#include "PlayHeadComponent.h"
+#include "PlayheadComponent.h"
 
 #include "TrackComponent.h"
 #include "TrackHeaderComponent.h"

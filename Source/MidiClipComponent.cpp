@@ -1,4 +1,3 @@
-#pragma once
 #include "MidiClipComponent.h"
 using namespace juce;
 
