@@ -25,7 +25,7 @@
   version:          0.0.1
   vendor:           GroovemanAndCo
   website:          https://github.com/GroovemanAndCo
-  description:      This example simply creates a new project and records from one midi input. It also allows a synth plgin to be added to the track
+  description:      This example simply creates a new project and records from one midi input. It also allows a synth plugin to be added to the track
 
   dependencies:     juce_audio_basics, juce_audio_devices, juce_audio_formats, juce_audio_processors, juce_audio_utils,
                     juce_core, juce_data_structures, juce_dsp, juce_events, juce_graphics,
@@ -44,11 +44,10 @@
 #pragma once
 #include <JuceHeader.h>
 
-#include "Utilities.h"
 #include "Components.h"
-#include "PluginWindow.h"
 
 #include "EngineHelpers.h"
+#include "ExtendedUIBehaviour.h"
 #include "TransportToolbarFactory.h"
 
 

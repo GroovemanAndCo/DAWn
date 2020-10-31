@@ -139,12 +139,13 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\EngineHelpers.cpp"/>
+    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp"/>
+    <ClCompile Include="..\..\Source\Components.cpp"/>
+    <ClCompile Include="..\..\Source\MainComponent.cpp"/>
     <ClCompile Include="..\..\Source\MainWindow.cpp"/>
     <ClCompile Include="..\..\Source\PluginWindow.cpp"/>
-    <ClCompile Include="..\..\Source\EngineHelpers.cpp"/>
-    <ClCompile Include="..\..\Source\Components.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
-    <ClCompile Include="..\..\Source\MainComponent.cpp"/>
     <ClCompile Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -3924,13 +3925,16 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_tracktion_graph.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\Utilities.h"/>
-    <ClInclude Include="..\..\Source\MainWindow.h"/>
-    <ClInclude Include="..\..\Source\PluginWindow.h"/>
-    <ClInclude Include="..\..\Source\Main.h"/>
     <ClInclude Include="..\..\Source\EngineHelpers.h"/>
     <ClInclude Include="..\..\Source\Components.h"/>
+    <ClInclude Include="..\..\Source\AudioProcessorEditorComp.h"/>
+    <ClInclude Include="..\..\Source\ExtendedUIBehaviour.h"/>
+    <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\Source\MainComponent.h"/>
+    <ClInclude Include="..\..\Source\MainWindow.h"/>
+    <ClInclude Include="..\..\Source\PluginWindow.h"/>
+    <ClInclude Include="..\..\Source\Utilities.h"/>
+    <ClInclude Include="..\..\Source\Main.h"/>
     <ClInclude Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

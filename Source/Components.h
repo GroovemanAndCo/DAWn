@@ -24,6 +24,7 @@
 */
 
 #pragma once
+#include "Utilities.h"
 
 namespace IDs
 {

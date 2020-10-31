@@ -2,6 +2,12 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="DAWn\Source\Engine">
+      <UniqueIdentifier>{5881BADE-D14F-F8ED-1E80-248B392052B9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DAWn\Source\GUI">
+      <UniqueIdentifier>{F7C21B88-E309-E562-C275-3BE23A3FEEA6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="DAWn\Source\Assets">
       <UniqueIdentifier>{036E4454-8E58-73B2-8A11-449398DE6ADA}</UniqueIdentifier>
     </Filter>
@@ -1138,22 +1144,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\MainWindow.cpp">
-      <Filter>DAWn\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\PluginWindow.cpp">
-      <Filter>DAWn\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\EngineHelpers.cpp">
-      <Filter>DAWn\Source</Filter>
+      <Filter>DAWn\Source\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp">
+      <Filter>DAWn\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Components.cpp">
-      <Filter>DAWn\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Main.cpp">
-      <Filter>DAWn\Source</Filter>
+      <Filter>DAWn\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\MainComponent.cpp">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MainWindow.cpp">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\PluginWindow.cpp">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Main.cpp">
       <Filter>DAWn\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\buffers\juce_AudioChannelSet.cpp">
@@ -5100,25 +5109,34 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\EngineHelpers.h">
+      <Filter>DAWn\Source\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Components.h">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\AudioProcessorEditorComp.h">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ExtendedUIBehaviour.h">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginEditor.h">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MainComponent.h">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MainWindow.h">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\PluginWindow.h">
+      <Filter>DAWn\Source\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Utilities.h">
       <Filter>DAWn\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MainWindow.h">
-      <Filter>DAWn\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\PluginWindow.h">
-      <Filter>DAWn\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\Main.h">
-      <Filter>DAWn\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\EngineHelpers.h">
-      <Filter>DAWn\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Components.h">
-      <Filter>DAWn\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\MainComponent.h">
       <Filter>DAWn\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\tracktion\modules\juce\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

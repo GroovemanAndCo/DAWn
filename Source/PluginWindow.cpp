@@ -17,6 +17,7 @@
 
 #include <JuceHeader.h>
 #include "PluginWindow.h"
+#include "AudioProcessorEditorComp.h"
 
 using namespace juce;
 
@@ -111,7 +112,7 @@ std::unique_ptr<Component> PluginWindow::create(tracktion_engine::Plugin& plugin
 std::unique_ptr<PluginEditor> PluginWindow::createContentComp()
 {
     if (auto ex = dynamic_cast<tracktion_engine::ExternalPlugin*> (&plugin))
-        return std::make_unique<AudioProcessorEditorContentComp>(*ex);
+        return std::make_unique<AudioProcessorEditorComp>(*ex);
 
     return nullptr;
 }
