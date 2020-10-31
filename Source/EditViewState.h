@@ -38,10 +38,10 @@ public:
         return (double (x) / width) * (viewX2 - viewX1) + viewX1;
     }
     
-    double beatToTime (double b) const
+    double beatsToTime (double beats) const
     {
         auto& ts = edit.tempoSequence;
-        return ts.beatsToTime (b);
+        return ts.beatsToTime (beats);
     }
     
     tracktion_engine::Edit& edit;

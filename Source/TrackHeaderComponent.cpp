@@ -24,9 +24,9 @@
 TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine::Track::Ptr t)
     : editViewState (evs), track (t)
 {
-    Helpers::addAndMakeVisible (*this, { &trackName, &armButton, &muteButton, &soloButton, &inputButton });
+    Helpers::addAndMakeVisible (*this, { &trackName, &armRecordButton, &muteButton, &soloButton, &inputButton });
     
-    armButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::red);
+    armRecordButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::red);
     muteButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::red);
     soloButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::green);
 
@@ -106,19 +106,19 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
                 }
             }
         };
-        armButton.onClick = [this, at]
+        armRecordButton.onClick = [this, at]
         {
             EngineHelpers::armTrack (*at, ! EngineHelpers::isTrackArmed (*at));
-            armButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
+            armRecordButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
         };
         muteButton.onClick = [at] { at->setMute (! at->isMuted (false)); };
         soloButton.onClick = [at] { at->setSolo (! at->isSolo (false)); };
         
-        armButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
+        armRecordButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
     }
     else
     {
-        armButton.setVisible (false);
+        armRecordButton.setVisible (false);
         muteButton.setVisible (false);
         soloButton.setVisible (false);
     }
@@ -152,8 +152,8 @@ void TrackHeaderComponent::valueTreePropertyChanged (juce::ValueTree& v, const j
     {
         if (auto at = dynamic_cast<tracktion_engine::AudioTrack*> (track.get()))
         {
-            armButton.setEnabled (EngineHelpers::trackHasInput (*at));
-            armButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
+            armRecordButton.setEnabled (EngineHelpers::trackHasInput (*at));
+            armRecordButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
         }
     }
 }
@@ -183,7 +183,7 @@ void TrackHeaderComponent::resized()
     int w = r.getHeight();
     inputButton.setBounds (r.removeFromLeft (w));
     r.removeFromLeft (2);
-    armButton.setBounds (r.removeFromLeft (w));
+    armRecordButton.setBounds (r.removeFromLeft (w));
     r.removeFromLeft (2);
     muteButton.setBounds (r.removeFromLeft (w));
     r.removeFromLeft (2);

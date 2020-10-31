@@ -24,7 +24,7 @@ class TrackHeaderComponent : public juce::Component,
 {
 public:
     TrackHeaderComponent (EditViewState&, tracktion_engine::Track::Ptr);
-    ~TrackHeaderComponent();
+    virtual ~TrackHeaderComponent();
     
     void paint (juce::Graphics& g) override;
     void mouseDown (const juce::MouseEvent& e) override;
@@ -39,7 +39,7 @@ private:
     
     juce::ValueTree inputsState;
     juce::Label trackName;
-    juce::TextButton armButton {"A"}, muteButton {"M"}, soloButton {"S"}, inputButton {"I"};
+    juce::TextButton armRecordButton {"R"}, muteButton {"M"}, soloButton {"S"}, inputButton {"I"};
 };
 
 
