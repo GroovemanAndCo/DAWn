@@ -56,7 +56,7 @@ bool RecordingClipComponent::getBoundsAndTime (Rectangle<int>& bounds, Range<dou
     auto editTimeToX = [this] (double t)
     {
         if (auto p = getParentComponent())
-            return editViewState.timeToX (t, p->getWidth()) - getX();
+            return editViewState.timeToXPosition (t, p->getWidth()) - getX();
         return 0;
     };
     
@@ -154,8 +154,8 @@ void RecordingClipComponent::updatePosition()
     
         if (auto p = getParentComponent())
         {
-            int x1 = editViewState.timeToX (t1, p->getWidth());
-            int x2 = editViewState.timeToX (t2, p->getWidth());
+            int x1 = editViewState.timeToXPosition (t1, p->getWidth());
+            int x2 = editViewState.timeToXPosition (t2, p->getWidth());
             
             setBounds (x1, 0, x2 - x1, p->getHeight());
             return;

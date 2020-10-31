@@ -28,7 +28,7 @@ public:
         viewY.referTo (state, IDs::viewY, um, 0);
     }
     
-    int timeToX (double time, int width) const
+    int timeToXPosition (double time, int width) const
     {
         return juce::roundToInt (((time - viewX1) * width) / (viewX2 - viewX1));
     }

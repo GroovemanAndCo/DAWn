@@ -92,8 +92,8 @@ void TrackComponent::resized()
     {
         auto& c = cc->getClip();
         auto pos = c.getPosition();
-        int x1 = editViewState.timeToX (pos.getStart(), getWidth());
-        int x2 = editViewState.timeToX (pos.getEnd(), getWidth());
+        int x1 = editViewState.timeToXPosition (pos.getStart(), getWidth());
+        int x2 = editViewState.timeToXPosition (pos.getEnd(), getWidth());
         
         cc->setBounds (x1, 0, x2 - x1, getHeight());
     }

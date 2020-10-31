@@ -62,7 +62,7 @@ void PlayheadComponent::timerCallback()
         setMouseCursor (juce::MouseCursor::LeftRightResizeCursor);
     }
 
-    int newX = editViewState.timeToX (edit.getTransport().getCurrentPosition(), getWidth());
+    int newX = editViewState.timeToXPosition (edit.getTransport().getCurrentPosition(), getWidth());
     if (newX != xPosition)
     {
         repaint (juce::jmin (newX, xPosition) - 1, 0, juce::jmax (newX, xPosition) - juce::jmin (newX, xPosition) + 3, getHeight());

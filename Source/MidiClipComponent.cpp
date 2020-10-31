@@ -12,26 +12,24 @@ void MidiClipComponent::paint (Graphics& g)
 {
     ClipComponent::paint (g);
     
-    if (auto mc = getMidiClip())
+    if (auto* mc = getMidiClip())
     {
         auto& seq = mc->getSequence();
-        for (auto n : seq.getNotes())
+        for (auto* n : seq.getNotes())
         {
-            double sBeat = mc->getStartBeat() + n->getStartBeat();
-            double eBeat = mc->getStartBeat() + n->getEndBeat();
+	        const auto startBeat = mc->getStartBeat() + n->getStartBeat();
+	        const auto endBeat = mc->getStartBeat() + n->getEndBeat();
+            const auto startTime = editViewState.beatToTime (startBeat);
+            const auto endTime = editViewState.beatToTime (endBeat);
             
-            auto s = editViewState.beatToTime (sBeat);
-            auto e = editViewState.beatToTime (eBeat);
-            
-            if (auto p = getParentComponent())
+            if (auto* p = getParentComponent())
             {
-                double t1 = editViewState.timeToX (s, p->getWidth()) - getX();
-                double t2 = editViewState.timeToX (e, p->getWidth()) - getX();
-                
-                double y = (1.0 - double (n->getNoteNumber()) / 127.0) * getHeight();
+                const auto left  = static_cast<float>(editViewState.timeToXPosition(startTime, p->getWidth()) - getX());
+                const auto right = static_cast<float>(editViewState.timeToXPosition (endTime, p->getWidth()) - getX());
+                const auto y     = static_cast<float>((1.0 - n->getNoteNumber() / 127.0) * getHeight());
                 
                 g.setColour (Colours::white.withAlpha (n->getVelocity() / 127.0f));
-                g.drawLine (float (t1), float (y), float (t2), float (y));
+                g.drawLine (left, y, right, y);
             }
         }
     }

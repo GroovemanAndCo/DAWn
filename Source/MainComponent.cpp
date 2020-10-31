@@ -87,7 +87,7 @@ void MainComponent::resized()
 
     auto r = getLocalBounds();
     auto w = r.getWidth() / 7;
-    auto topTool = r.removeFromTop(toolbarThickness);
+    r.removeFromTop(toolbarThickness);
     auto topR = r.removeFromTop(30);
 
     toolbar.setBounds( toolbar.isVertical() ? getLocalBounds().removeFromLeft(toolbarThickness) : getLocalBounds().removeFromTop(toolbarThickness));
