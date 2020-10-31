@@ -6,7 +6,6 @@
     `---' `--'   `--`--'`---'`--'`--' `---' `--' `---' `--''--'    www.tracktion.com
 */
 
-#pragma once
 #include "Utilities.h"
 #include "Components.h"
 #include "EngineHelpers.h"
