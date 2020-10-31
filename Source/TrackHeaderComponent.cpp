@@ -32,7 +32,7 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
 
     trackName.setText (t->getName(), juce::dontSendNotification);
     
-    if (auto at = dynamic_cast<tracktion_engine::AudioTrack*> (track.get()))
+    if (auto* at = dynamic_cast<tracktion_engine::AudioTrack*> (track.get()))
     {
         inputButton.onClick = [this, at]
         {
@@ -40,19 +40,19 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
             
             if (EngineHelpers::trackHasInput (*at))
             {
-                bool ticked = EngineHelpers::isInputMonitoringEnabled (*at);
+                const auto ticked = EngineHelpers::isInputMonitoringEnabled (*at);
                 m.addItem (1000, "Input Monitoring", true, ticked);
                 m.addSeparator();
             }
             
             if (editViewState.showWaveDevices)
             {
-                int id = 1;
-                for (auto instance : at->edit.getAllInputDevices())
+                auto id = 1;
+                for (auto* instance : at->edit.getAllInputDevices())
                 {
                     if (instance->getInputDevice().getDeviceType() == tracktion_engine::InputDevice::waveDevice)
                     {
-                        bool ticked = instance->getTargetTracks().getFirst() == at;
+                        const auto ticked = instance->getTargetTracks().getFirst() == at;
                         m.addItem (id++, instance->getInputDevice().getName(), true, ticked);
                     }
                 }
@@ -62,18 +62,18 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
             {
                 m.addSeparator();
                 
-                int id = 100;
-                for (auto instance : at->edit.getAllInputDevices())
+                auto id = 100;
+                for (auto* instance : at->edit.getAllInputDevices())
                 {
                     if (instance->getInputDevice().getDeviceType() == tracktion_engine::InputDevice::physicalMidiDevice)
                     {
-                        bool ticked = instance->getTargetTracks().getFirst() == at;
+                        const auto ticked = instance->getTargetTracks().getFirst() == at;
                         m.addItem (id++, instance->getInputDevice().getName(), true, ticked);
                     }
                 }
             }
 
-            int res = m.show();
+	        const auto res = m.show();
 
             if (res == 1000)
             {
@@ -81,8 +81,8 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
             }
             else if (res >= 100)
             {
-                int id = 100;
-                for (auto instance : at->edit.getAllInputDevices())
+                auto id = 100;
+                for (auto* instance : at->edit.getAllInputDevices())
                 {
                     if (instance->getInputDevice().getDeviceType() == tracktion_engine::InputDevice::physicalMidiDevice)
                     {
@@ -94,8 +94,8 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
             }
             else if (res >= 1)
             {
-                int id = 1;
-                for (auto instance : at->edit.getAllInputDevices())
+                auto id = 1;
+                for (auto* instance : at->edit.getAllInputDevices())
                 {
                     if (instance->getInputDevice().getDeviceType() == tracktion_engine::InputDevice::waveDevice)
                     {
@@ -126,10 +126,10 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
     track->state.addListener (this);
     inputsState = track->edit.state.getChildWithName (tracktion_engine::IDs::INPUTDEVICES);
     inputsState.addListener (this);
-    
-    valueTreePropertyChanged (track->state, tracktion_engine::IDs::mute);
-    valueTreePropertyChanged (track->state, tracktion_engine::IDs::solo);
-    valueTreePropertyChanged (inputsState, tracktion_engine::IDs::targetIndex);
+
+    TrackHeaderComponent::valueTreePropertyChanged (track->state, tracktion_engine::IDs::mute);
+    TrackHeaderComponent::valueTreePropertyChanged (track->state, tracktion_engine::IDs::solo);
+    TrackHeaderComponent::valueTreePropertyChanged (inputsState, tracktion_engine::IDs::targetIndex);
 }
 
 TrackHeaderComponent::~TrackHeaderComponent()
@@ -142,15 +142,15 @@ void TrackHeaderComponent::valueTreePropertyChanged (juce::ValueTree& v, const j
     if (tracktion_engine::TrackList::isTrack (v))
     {
         if (i == tracktion_engine::IDs::mute)
-            muteButton.setToggleState ((bool)v[i], juce::dontSendNotification);
+            muteButton.setToggleState (static_cast<bool>(v[i]), juce::dontSendNotification);
         else if (i == tracktion_engine::IDs::solo)
-            soloButton.setToggleState ((bool)v[i], juce::dontSendNotification);
+            soloButton.setToggleState (static_cast<bool>(v[i]), juce::dontSendNotification);
     }
     else if (v.hasType (tracktion_engine::IDs::INPUTDEVICES)
              || v.hasType (tracktion_engine::IDs::INPUTDEVICE)
              || v.hasType (tracktion_engine::IDs::INPUTDEVICEDESTINATION))
     {
-        if (auto at = dynamic_cast<tracktion_engine::AudioTrack*> (track.get()))
+        if (auto* at = dynamic_cast<tracktion_engine::AudioTrack*> (track.get()))
         {
             armRecordButton.setEnabled (EngineHelpers::trackHasInput (*at));
             armRecordButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
