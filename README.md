@@ -1,5 +1,5 @@
 # DAWn
-DAWn stands for Digital Audio Workstation Nextgen.
+DAWn stands for Digital Audio Workstation Next-gen.
 
 This ambitious project is an attempt to learn about digital audio workstation development with a concrete motivation.
 
