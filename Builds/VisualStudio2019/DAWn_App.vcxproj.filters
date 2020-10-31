@@ -1180,6 +1180,9 @@
     <ClCompile Include="..\..\Source\PluginComponent.cpp">
       <Filter>DAWn\Source\GUI\Plugins</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\PluginTreeGroup.cpp">
       <Filter>DAWn\Source\GUI\Plugins</Filter>
     </ClCompile>
@@ -1200,9 +1203,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\RecordingClipComponent.cpp">
       <Filter>DAWn\Source\GUI\Clips</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp">
-      <Filter>DAWn\Source\GUI</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\MainComponent.cpp">
       <Filter>DAWn\Source\GUI</Filter>
@@ -5175,6 +5175,9 @@
     <ClInclude Include="..\..\Source\TrackHeaderComponent.h">
       <Filter>DAWn\Source\GUI\Tracks</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\AudioProcessorEditorComp.h">
+      <Filter>DAWn\Source\GUI\Plugins</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\PluginComponent.h">
       <Filter>DAWn\Source\GUI\Plugins</Filter>
     </ClInclude>
@@ -5212,9 +5215,6 @@
       <Filter>DAWn\Source\GUI\Clips</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\EditViewState.h">
-      <Filter>DAWn\Source\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\AudioProcessorEditorComp.h">
       <Filter>DAWn\Source\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ExtendedUIBehaviour.h">

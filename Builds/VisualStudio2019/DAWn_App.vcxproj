@@ -146,6 +146,7 @@
     <ClCompile Include="..\..\Source\TrackFooterComponent.cpp"/>
     <ClCompile Include="..\..\Source\TrackHeaderComponent.cpp"/>
     <ClCompile Include="..\..\Source\PluginComponent.cpp"/>
+    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp"/>
     <ClCompile Include="..\..\Source\PluginTreeGroup.cpp"/>
     <ClCompile Include="..\..\Source\PluginTreeItem.cpp"/>
     <ClCompile Include="..\..\Source\PluginWindow.cpp"/>
@@ -153,7 +154,6 @@
     <ClCompile Include="..\..\Source\ClipComponent.cpp"/>
     <ClCompile Include="..\..\Source\MidiClipComponent.cpp"/>
     <ClCompile Include="..\..\Source\RecordingClipComponent.cpp"/>
-    <ClCompile Include="..\..\Source\AudioProcessorEditorComp.cpp"/>
     <ClCompile Include="..\..\Source\MainComponent.cpp"/>
     <ClCompile Include="..\..\Source\MainWindow.cpp"/>
     <ClCompile Include="..\..\Source\Main.cpp"/>
@@ -3942,6 +3942,7 @@
     <ClInclude Include="..\..\Source\TrackComponent.h"/>
     <ClInclude Include="..\..\Source\TrackFooterComponent.h"/>
     <ClInclude Include="..\..\Source\TrackHeaderComponent.h"/>
+    <ClInclude Include="..\..\Source\AudioProcessorEditorComp.h"/>
     <ClInclude Include="..\..\Source\PluginComponent.h"/>
     <ClInclude Include="..\..\Source\PluginDefinitions.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
@@ -3955,7 +3956,6 @@
     <ClInclude Include="..\..\Source\ClipComponent.h"/>
     <ClInclude Include="..\..\Source\AudioClipComponent.h"/>
     <ClInclude Include="..\..\Source\EditViewState.h"/>
-    <ClInclude Include="..\..\Source\AudioProcessorEditorComp.h"/>
     <ClInclude Include="..\..\Source\ExtendedUIBehaviour.h"/>
     <ClInclude Include="..\..\Source\MainComponent.h"/>
     <ClInclude Include="..\..\Source\MainWindow.h"/>

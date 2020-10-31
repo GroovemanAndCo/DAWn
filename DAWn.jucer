@@ -41,6 +41,10 @@
         <GROUP id="{89835F1F-0250-7DFE-E85F-C897854E4779}" name="Plugins">
           <FILE id="i8S5Wx" name="PluginComponent.cpp" compile="1" resource="0"
                 file="Source/PluginComponent.cpp"/>
+          <FILE id="kqdrrR" name="AudioProcessorEditorComp.cpp" compile="1" resource="0"
+                file="Source/AudioProcessorEditorComp.cpp"/>
+          <FILE id="XCJuqc" name="AudioProcessorEditorComp.h" compile="0" resource="0"
+                file="Source/AudioProcessorEditorComp.h"/>
           <FILE id="EWPrql" name="PluginComponent.h" compile="0" resource="0"
                 file="Source/PluginComponent.h"/>
           <FILE id="QJfz7P" name="PluginDefinitions.h" compile="0" resource="0"
@@ -79,10 +83,6 @@
                 file="Source/AudioClipComponent.h"/>
         </GROUP>
         <FILE id="oREjE4" name="EditViewState.h" compile="0" resource="0" file="Source/EditViewState.h"/>
-        <FILE id="kqdrrR" name="AudioProcessorEditorComp.cpp" compile="1" resource="0"
-              file="Source/AudioProcessorEditorComp.cpp"/>
-        <FILE id="XCJuqc" name="AudioProcessorEditorComp.h" compile="0" resource="0"
-              file="Source/AudioProcessorEditorComp.h"/>
         <FILE id="rtvt1o" name="ExtendedUIBehaviour.h" compile="0" resource="0"
               file="Source/ExtendedUIBehaviour.h"/>
         <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
