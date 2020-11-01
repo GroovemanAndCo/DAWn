@@ -24,7 +24,7 @@ MainWindow::MainWindow(juce::String name)
         DocumentWindow::allButtons)
 {
     setUsingNativeTitleBar(true);
-    setContentOwned(new MainComponent(), true);
+    setContentOwned(new MainComponent(*this), true);
 
 #if JUCE_IOS || JUCE_ANDROID
     setFullScreen(true);

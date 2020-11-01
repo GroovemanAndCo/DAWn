@@ -19,8 +19,9 @@
 
 using namespace juce;
 
-MainComponent::MainComponent() : factory(this)
+MainComponent::MainComponent( Component& par) : factory(this), parent(par)
 {
+	
     settingsButton.onClick = [this] { EngineHelpers::showAudioDeviceSettings(engine); };
     pluginsButton.onClick = [this]
     {
@@ -50,7 +51,7 @@ MainComponent::MainComponent() : factory(this)
 	Helpers::addAndMakeVisible(*this, {
 		&settingsButton, &pluginsButton, /* &newEditButton, &playPauseButton, */ 
 		&showEditButton,/* &recordButton, */ &newTrackButton,
-		&deleteButton, &editNameLabel, &clearTracksButton });
+		&deleteButton, /*&editNameLabel,*/ &clearTracksButton, &aboutButton });
 
     deleteButton.setEnabled(false);
 
@@ -90,7 +91,7 @@ void MainComponent::resized()
     auto r = getLocalBounds();
     r.removeFromTop(toolbarThickness);
     auto topR = r.removeFromTop(30);
-	auto w = r.getWidth() / 9;
+	auto w = r.getWidth() / 7;
 
 	toolbar.setBounds(toolbar.isVertical() ? getLocalBounds().removeFromLeft(toolbarThickness) : getLocalBounds().removeFromTop(toolbarThickness));
 
@@ -103,7 +104,7 @@ void MainComponent::resized()
     newTrackButton.setBounds(topR.removeFromLeft(w).reduced(2));
     deleteButton.setBounds(topR.removeFromLeft(w).reduced(2));
 	clearTracksButton.setBounds(topR.removeFromLeft(w).reduced(2));
-
+    aboutButton.setBounds(topR.removeFromLeft(w).reduced(2));
     topR = r.removeFromTop(30);
     editNameLabel.setBounds(topR);
 
@@ -167,6 +168,30 @@ void MainComponent::setupGUI()
 		if (!userIsSure) return;
 		for (auto* t : tracktion_engine::getAudioTracks(*edit)) edit->deleteTrack(t);
 	};
+	
+	aboutButton.onClick = [this]
+	{
+        AlertWindow::showMessageBoxAsync (AlertWindow::InfoIcon,
+              TRANS(String("About DAWn version ") + ProjectInfo::versionString + " ..."),
+              TRANS(
+                  "DAWn stands for Digital Audio Workstation Next-gen.                                      \n\n"
+                  "Copyright (c) 2020 Fabien (https://github.com/fab672000).                                \n"
+                  "Powered by the trackion engine framework (https://github.com/Tracktion/tracktion_engine).\n"
+                  "                                                                                         \n"
+                  "This program is free software: you can redistribute it and/or modify                     \n"
+                  "it under the terms of the GNU General Public License as published by                     \n"
+                  "the Free Software Foundation, version 3.                                                 \n"
+                  "                                                                                         \n"
+                  "This program is distributed in the hope that it will be useful, but                      \n"
+                  "WITHOUT ANY WARRANTY; without even the implied warranty of                               \n"
+                  "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU                         \n"
+                  "General Public License for more details.                                                 \n"
+                  "                                                                                         \n"
+                  "You should have received a copy of the GNU General Public License                        \n"
+                  "along with this program. If not, see <http://www.gnu.org/licenses/>.                     \n"
+
+              ));
+	};
 }
 
 /** Called when the button is clicked. */
@@ -213,6 +238,12 @@ void MainComponent::onRecordTracks()
 	if (wasRecording) tracktion_engine::EditFileOperations(*edit).save(true, true, false);
 }
 
+void MainComponent::setSongTitle(const juce::String& title )
+{
+    parent.setName ("DAWn Project - " + title );
+
+}
+
 void MainComponent::createOrLoadEdit(juce::File editFile)
 {
     if (editFile == juce::File())
@@ -237,8 +268,8 @@ void MainComponent::createOrLoadEdit(juce::File editFile)
 
     auto& transport = edit->getTransport();
     transport.addChangeListener(this);
-
-    editNameLabel.setText(editFile.getFileNameWithoutExtension(), juce::dontSendNotification);
+	setSongTitle(editFile.getFileNameWithoutExtension() );
+    // editNameLabel.setText(editFile.getFileNameWithoutExtension(), juce::dontSendNotification);
     showEditButton.onClick = [this, editFile]
     {
         tracktion_engine::EditFileOperations(*edit).save(true, true, false);

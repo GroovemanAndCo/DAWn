@@ -4,7 +4,8 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               companyName="Grooveman And Co" companyCopyright="Copyright Fabien 2020 (https://github.com/fab672000). All rights reserved."
               companyWebsite="https://github.com/fab672000" companyEmail="fabien@onepost.net"
-              headerPath="C:\SDKs\ASIOSDK2.3\common&#10;../../Source" cppLanguageStandard="17">
+              headerPath="C:\SDKs\ASIOSDK2.3\common&#10;../../Source" cppLanguageStandard="17"
+              version="0.0.1">
   <MAINGROUP id="QJAxII" name="DAWn">
     <GROUP id="{EC53D676-666E-EBF9-A8C0-A2B98200A763}" name="Source">
       <GROUP id="{D6DEAF66-581E-72FF-3827-015C7D66F847}" name="Utiities">

@@ -56,7 +56,7 @@ class MainComponent : public juce::Component, public juce::Button::Listener, pri
 {
 public:
     //==============================================================================
-    MainComponent();
+    MainComponent(juce::Component& parent);
     ~MainComponent();
     //==============================================================================
     void paint(juce::Graphics& g) override;
@@ -71,8 +71,8 @@ private:
 
     juce::TextButton settingsButton{ "Settings" }, pluginsButton{ "Plugins" },
 	    newEditButton{ "New" }, playPauseButton{ "Play" }, recordButton{ "Record" }, 
-	    showEditButton{ "Show Edit" }, newTrackButton{ "New Track" },
-		deleteButton{ "Delete" }, clearTracksButton { "Clear Tracks" }, aboutButton;
+	    showEditButton{ "Show Project" }, newTrackButton{ "New Track" },
+		deleteButton{ "Delete" }, clearTracksButton { "Clear Tracks" }, aboutButton{"?"};
 	
     juce::Label editNameLabel{ "No Edit Loaded" };
     juce::ToggleButton showWaveformButton{ "Show Waveforms" };
@@ -94,6 +94,7 @@ private:
     }
 
     void onRecordTracks(); ///< called when record action is emitted
+    void setSongTitle(const juce::String& title); ///< Set the song title in the window caption
     void createOrLoadEdit(juce::File editFile = {});
     void changeListenerCallback(juce::ChangeBroadcaster* source) override
     {
@@ -151,6 +152,7 @@ private:
     juce::Toolbar toolbar;
 
     TransportToolbarItemFactory factory;
-
+    Component& parent; // TODO investigate a better way to get the windows parent for setting the title, maybe decouple it with a callback instead
+	
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };
