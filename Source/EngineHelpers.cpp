@@ -101,6 +101,13 @@ namespace EngineHelpers
         return clip;
     }
 
+    void stop(tracktion_engine::Edit& edit)
+    {
+        auto& transport = edit.getTransport();
+        transport.position = 0.0;
+        transport.stop(false, false);
+    }
+	
     void togglePlay(tracktion_engine::Edit& edit)
     {
         auto& transport = edit.getTransport();
@@ -121,7 +128,7 @@ namespace EngineHelpers
             transport.record(false);
     }
 
-    void armTrack(tracktion_engine::AudioTrack& t, bool arm, int position)
+    void armRecordTrack(tracktion_engine::AudioTrack& t, bool arm, int position)
     {
         auto& edit = t.edit;
         for (auto instance : edit.getAllInputDevices())

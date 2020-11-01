@@ -20,8 +20,7 @@
 
 MainWindow::MainWindow(juce::String name)
     : DocumentWindow(name,
-        juce::Desktop::getInstance().getDefaultLookAndFeel()
-        .findColour(juce::ResizableWindow::backgroundColourId),
+        juce::Desktop::getInstance().getDefaultLookAndFeel().findColour(juce::ResizableWindow::backgroundColourId),
         DocumentWindow::allButtons)
 {
     setUsingNativeTitleBar(true);

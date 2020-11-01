@@ -20,7 +20,7 @@ TrackComponent::~TrackComponent()
 
 void TrackComponent::paint (juce::Graphics& g)
 {
-    g.fillAll (juce::Colours::grey);
+    g.fillAll (juce::Colour(0xff202030));
     
     if (editViewState.selectionManager.isSelected (track.get()))
     {

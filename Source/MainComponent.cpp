@@ -19,7 +19,7 @@
 
 using namespace juce;
 
-MainComponent::MainComponent()
+MainComponent::MainComponent() : factory(this)
 {
     settingsButton.onClick = [this] { EngineHelpers::showAudioDeviceSettings(engine); };
     pluginsButton.onClick = [this]
@@ -42,13 +42,15 @@ MainComponent::MainComponent()
     };
     newEditButton.onClick = [this] { createOrLoadEdit(); };
 
-    updatePlayButtonText();
+	updatePlayButton();
     updateRecordButtonText();
 
     editNameLabel.setJustificationType(Justification::centred);
 
-    Helpers::addAndMakeVisible(*this, { &settingsButton, &pluginsButton, &newEditButton, &playPauseButton, &showEditButton,
-                                         &recordButton, &newTrackButton, &deleteButton, &editNameLabel });
+	Helpers::addAndMakeVisible(*this, {
+		&settingsButton, &pluginsButton, /* &newEditButton, &playPauseButton, */ 
+		&showEditButton,/* &recordButton, */ &newTrackButton,
+		&deleteButton, &editNameLabel, &clearTracksButton });
 
     deleteButton.setEnabled(false);
 
@@ -76,8 +78,8 @@ MainComponent::~MainComponent()
 
 void MainComponent::paint(Graphics& g)
 {
-    auto col = getLookAndFeel().findColour(ResizableWindow::backgroundColourId);
-    // auto col = Colour(0x00244249);
+	auto col = // getLookAndFeel().findColour(ResizableWindow::backgroundColourId);
+	        juce::Colour(0xff101525); 
     g.fillAll(col);
 }
 
@@ -86,27 +88,30 @@ void MainComponent::resized()
     const auto toolbarThickness = 32;
 
     auto r = getLocalBounds();
-    auto w = r.getWidth() / 7;
     r.removeFromTop(toolbarThickness);
     auto topR = r.removeFromTop(30);
+	auto w = r.getWidth() / 9;
 
-    toolbar.setBounds( toolbar.isVertical() ? getLocalBounds().removeFromLeft(toolbarThickness) : getLocalBounds().removeFromTop(toolbarThickness));
+	toolbar.setBounds(toolbar.isVertical() ? getLocalBounds().removeFromLeft(toolbarThickness) : getLocalBounds().removeFromTop(toolbarThickness));
 
     settingsButton.setBounds(topR.removeFromLeft(w).reduced(2));
     pluginsButton.setBounds(topR.removeFromLeft(w).reduced(2));
-    newEditButton.setBounds(topR.removeFromLeft(w).reduced(2));
-    playPauseButton.setBounds(topR.removeFromLeft(w).reduced(2));
-    recordButton.setBounds(topR.removeFromLeft(w).reduced(2));
+	// newEditButton.setBounds(topR.removeFromLeft(w).reduced(2));
+	// playPauseButton.setBounds(topR.removeFromLeft(w).reduced(2));
+	// recordButton.setBounds(topR.removeFromLeft(w).reduced(2)); 
     showEditButton.setBounds(topR.removeFromLeft(w).reduced(2));
     newTrackButton.setBounds(topR.removeFromLeft(w).reduced(2));
     deleteButton.setBounds(topR.removeFromLeft(w).reduced(2));
+	clearTracksButton.setBounds(topR.removeFromLeft(w).reduced(2));
+
     topR = r.removeFromTop(30);
     editNameLabel.setBounds(topR);
 
-    if (editComponent != nullptr)
-        editComponent->setBounds(r);
+	if (editComponent != nullptr) editComponent->setBounds(r);
 }
 
+/** Called when the button's state changes. */
+//virtual void buttonStateChanged (Button*)  {}
 void MainComponent::setupGUI()
 {
     // Create and add the toolbar...
@@ -120,13 +125,7 @@ void MainComponent::setupGUI()
         EngineHelpers::togglePlay(*edit);
     };
 
-	recordButton.onClick = [this]
-    {
-        bool wasRecording = edit->getTransport().isRecording();
-        EngineHelpers::toggleRecord(*edit);
-        if (wasRecording)
-            tracktion_engine::EditFileOperations(*edit).save(true, true, false);
-    };
+	recordButton.onClick = [this]	{ onRecordTracks();	}; 
 
 	newTrackButton.onClick = [this]
     {
@@ -157,13 +156,69 @@ void MainComponent::setupGUI()
         evs.drawWaveforms = !evs.drawWaveforms.get();
         showWaveformButton.setToggleState(evs.drawWaveforms, dontSendNotification);
     };
+
+	clearTracksButton.onClick = [this]
+	{
+		const auto userIsSure = engine.getUIBehaviour()
+			.showOkCancelAlertBox (TRANS("MIDI Clip"),
+				TRANS("Are you sure you want clear all tracks?"),
+				TRANS("Clear them all"),
+				TRANS("Ignore")) == 1;
+		if (!userIsSure) return;
+		for (auto* t : tracktion_engine::getAudioTracks(*edit)) edit->deleteTrack(t);
+	};
 }
+
+/** Called when the button is clicked. */
+void MainComponent::buttonClicked(juce::Button* button)
+{
+	const auto name = button->getName().toLowerCase();
+	if (name == "new")  createOrLoadEdit();
+	else if (name == "open") createOrLoadEdit();
+	else if (name == "save")
+	{
+		tracktion_engine::EditFileOperations(*edit).save(true, true, false);
+		TRACKTION_LOG("Edit File " + edit->getName() + " saved.");
+	}
+	else if (name == "save as")
+	{
+		juce::FileChooser fc("Save As...",
+			juce::File::getSpecialLocation(juce::File::userDocumentsDirectory),
+			"*.tracktionedit");
+		if (fc.browseForFileToSave(true))
+		{
+			auto editFile = fc.getResult();
+			tracktion_engine::EditFileOperations(*edit).saveAs(editFile);
+			TRACKTION_LOG("Edit file saved as " + edit->getName() + " saved.");
+		}
+
+	}
+	else if (name == "start")
+	{ // pay/pause
+		// TODO change icon to pause icon after starting and vice-versa
+		EngineHelpers::togglePlay(*edit);
+	}
+	else if (name == "stop") EngineHelpers::stop(*edit);
+	else if (name == "record") onRecordTracks();
+	else
+	{
+		TRACKTION_LOG(juce::String("Unknown Button " + button->getName() + " pressed"));
+	}
+}
+
+void MainComponent::onRecordTracks()
+{
+	const auto wasRecording = edit->getTransport().isRecording();
+	EngineHelpers::toggleRecord(*edit);
+	if (wasRecording) tracktion_engine::EditFileOperations(*edit).save(true, true, false);
+}
+
 void MainComponent::createOrLoadEdit(juce::File editFile)
 {
     if (editFile == juce::File())
     {
         juce::FileChooser fc("New Edit", juce::File::getSpecialLocation(juce::File::userDocumentsDirectory), "*.tracktionedit");
-        if (fc.browseForFileToSave(true))
+		if (fc.browseForFileToSave(false))
             editFile = fc.getResult();
         else
             return;
@@ -197,7 +252,7 @@ void MainComponent::createOrLoadEdit(juce::File editFile)
     editComponent = std::make_unique<EditComponent>(*edit, selectionManager);
     editComponent->getEditViewState().showFooters = true;
     editComponent->getEditViewState().showMidiDevices = true;
-    editComponent->getEditViewState().showWaveDevices = false;
+	editComponent->getEditViewState().showWaveDevices = true;
 
     addAndMakeVisible(*editComponent);
 }

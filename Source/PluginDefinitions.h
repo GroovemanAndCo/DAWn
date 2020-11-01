@@ -15,4 +15,4 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 #pragma once
-constexpr const char* internal_plugin_format_name = "TracktionInternal";
+constexpr char* internal_plugin_format_name = "TracktionInternal";

@@ -23,7 +23,7 @@
 class TransportToolbarItemFactory : public juce::ToolbarItemFactory
 {
 public:
-    TransportToolbarItemFactory() {}
+    TransportToolbarItemFactory(juce::Button::Listener* listener): toolbarButtonsListener(listener) {}
 
     //==============================================================================
     // Each type of item a toolbar can contain must be given a unique ID. These
@@ -124,9 +124,10 @@ public:
         return nullptr;
     }
 
-private:
+  private:
     juce::StringArray iconNames;
     juce::OwnedArray<juce::Drawable> iconsFromZipFile;
+    juce::Button::Listener* toolbarButtonsListener;
 
     // This is a little utility to create a button with one of the SVG images in
     // our embedded ZIP file "icons.zip"
@@ -150,7 +151,12 @@ private:
         }
 
         auto* image = iconsFromZipFile[iconNames.indexOf(filename)];
-        return new juce::ToolbarButton(itemId, text, image->createCopy(), {});
+        auto* button = new juce::ToolbarButton(itemId, text, image->createCopy(), {});
+    	button->addListener(toolbarButtonsListener);
+    	
+    	return button;
+
+    	
     }
 };
 

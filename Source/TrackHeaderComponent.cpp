@@ -25,9 +25,8 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
     : editViewState (evs), track (t)
 {
     Helpers::addAndMakeVisible (*this, { &trackName, &armRecordButton, &muteButton, &soloButton, &inputButton });
-    
     armRecordButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::red);
-    muteButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::red);
+    muteButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::blue);
     soloButton.setColour (juce::TextButton::buttonOnColourId, juce::Colours::green);
 
     trackName.setText (t->getName(), juce::dontSendNotification);
@@ -108,7 +107,7 @@ TrackHeaderComponent::TrackHeaderComponent (EditViewState& evs, tracktion_engine
         };
         armRecordButton.onClick = [this, at]
         {
-            EngineHelpers::armTrack (*at, ! EngineHelpers::isTrackArmed (*at));
+            EngineHelpers::armRecordTrack (*at, ! EngineHelpers::isTrackArmed (*at));
             armRecordButton.setToggleState (EngineHelpers::isTrackArmed (*at), juce::dontSendNotification);
         };
         muteButton.onClick = [at] { at->setMute (! at->isMuted (false)); };
@@ -160,7 +159,7 @@ void TrackHeaderComponent::valueTreePropertyChanged (juce::ValueTree& v, const j
 
 void TrackHeaderComponent::paint (juce::Graphics& g)
 {
-    g.setColour (juce::Colours::grey);
+    g.setColour (juce::Colour(0xff202030)); // TODO figure a better look and feel scheme approach later
     g.fillRect (getLocalBounds().withTrimmedRight (2));
     
     if (editViewState.selectionManager.isSelected (track.get()))

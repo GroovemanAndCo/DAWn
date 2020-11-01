@@ -7,12 +7,27 @@
               headerPath="C:\SDKs\ASIOSDK2.3\common&#10;../../Source" cppLanguageStandard="17">
   <MAINGROUP id="QJAxII" name="DAWn">
     <GROUP id="{EC53D676-666E-EBF9-A8C0-A2B98200A763}" name="Source">
-      <GROUP id="{D6DEAF66-581E-72FF-3827-015C7D66F847}" name="Engine">
+      <GROUP id="{D6DEAF66-581E-72FF-3827-015C7D66F847}" name="Utiities">
+        <FILE id="OGd2tq" name="Utilities.h" compile="0" resource="0" file="Source/Utilities.h"/>
+        <FILE id="oREjE4" name="EditViewState.h" compile="0" resource="0" file="Source/EditViewState.h"/>
         <FILE id="DuGUDM" name="EngineHelpers.h" compile="0" resource="0" file="Source/EngineHelpers.h"/>
         <FILE id="AtW7p5" name="EngineHelpers.cpp" compile="1" resource="0"
               file="Source/EngineHelpers.cpp"/>
       </GROUP>
       <GROUP id="{FC509DB9-C535-CC23-7A84-F4F5A204F2EA}" name="GUI">
+        <GROUP id="{F21F1CEE-719A-04ED-F2EF-4633CB2C641E}" name="Main">
+          <FILE id="HaQFkO" name="MainToolbarListener.h" compile="0" resource="0"
+                file="Source/MainToolbarListener.h"/>
+          <FILE id="uwlCxV" name="TransportToolbarFactory.h" compile="0" resource="0"
+                file="Source/TransportToolbarFactory.h"/>
+          <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+          <FILE id="qTv4fw" name="Main.h" compile="0" resource="0" file="Source/Main.h"/>
+          <FILE id="lGoN2z" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+          <FILE id="Xnvt7D" name="MainComponent.cpp" compile="1" resource="0"
+                file="Source/MainComponent.cpp"/>
+          <FILE id="cPpiyt" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
+          <FILE id="zUZrZH" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
+        </GROUP>
         <GROUP id="{CD395257-4848-4F71-552B-D6CF078708E3}" name="Edits">
           <FILE id="A20TFG" name="EditComponent.cpp" compile="1" resource="0"
                 file="Source/EditComponent.cpp"/>
@@ -82,21 +97,12 @@
           <FILE id="yYLF0r" name="AudioClipComponent.h" compile="0" resource="0"
                 file="Source/AudioClipComponent.h"/>
         </GROUP>
-        <FILE id="oREjE4" name="EditViewState.h" compile="0" resource="0" file="Source/EditViewState.h"/>
         <FILE id="rtvt1o" name="ExtendedUIBehaviour.h" compile="0" resource="0"
               file="Source/ExtendedUIBehaviour.h"/>
-        <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
-        <FILE id="Xnvt7D" name="MainComponent.cpp" compile="1" resource="0"
-              file="Source/MainComponent.cpp"/>
-        <FILE id="cPpiyt" name="MainWindow.cpp" compile="1" resource="0" file="Source/MainWindow.cpp"/>
-        <FILE id="zUZrZH" name="MainWindow.h" compile="0" resource="0" file="Source/MainWindow.h"/>
       </GROUP>
       <GROUP id="{90A5CF50-C1BF-8AC6-6698-D94252C37885}" name="Assets">
         <FILE id="ILPhKv" name="res_icons.zip" compile="0" resource="1" file="Source/Assets/res_icons.zip"/>
       </GROUP>
-      <FILE id="OGd2tq" name="Utilities.h" compile="0" resource="0" file="Source/Utilities.h"/>
-      <FILE id="qTv4fw" name="Main.h" compile="0" resource="0" file="Source/Main.h"/>
-      <FILE id="lGoN2z" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_PLUGINHOST_VST="1" JUCE_PLUGINHOST_VST3="1"

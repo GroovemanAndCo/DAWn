@@ -93,7 +93,7 @@ void TrackFooterComponent::valueTreeChildOrderChanged (juce::ValueTree&, int, in
 
 void TrackFooterComponent::paint (Graphics& g)
 {
-    g.setColour (Colours::grey);
+    g.setColour (Colour(0xff202030));
     g.fillRect (getLocalBounds().withTrimmedLeft (2));
     
     if (editViewState.selectionManager.isSelected (track.get()))

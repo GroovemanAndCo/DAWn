@@ -52,7 +52,7 @@
 
 
 //==============================================================================
-class MainComponent : public juce::Component, private juce::ChangeListener
+class MainComponent : public juce::Component, public juce::Button::Listener, private juce::ChangeListener
 {
 public:
     //==============================================================================
@@ -69,17 +69,21 @@ private:
     std::unique_ptr<tracktion_engine::Edit> edit;
     std::unique_ptr<EditComponent> editComponent;
 
-    juce::TextButton settingsButton{ "Settings" }, pluginsButton{ "Plugins" }, newEditButton{ "New" }, playPauseButton{ "Play" },
-	    showEditButton{ "Show Edit" }, newTrackButton{ "New Track" }, deleteButton{ "Delete" }, recordButton{ "Record" };
+    juce::TextButton settingsButton{ "Settings" }, pluginsButton{ "Plugins" },
+	    newEditButton{ "New" }, playPauseButton{ "Play" }, recordButton{ "Record" }, 
+	    showEditButton{ "Show Edit" }, newTrackButton{ "New Track" },
+		deleteButton{ "Delete" }, clearTracksButton { "Clear Tracks" }, aboutButton;
+	
     juce::Label editNameLabel{ "No Edit Loaded" };
     juce::ToggleButton showWaveformButton{ "Show Waveforms" };
 
     //==============================================================================
     void setupGUI();
 
-    void updatePlayButtonText()
+    void updatePlayButton()
     {
-        if (edit != nullptr)
+        if (edit == nullptr) return;
+    	
             playPauseButton.setButtonText(edit->getTransport().isPlaying() ? "Stop" : "Play");
     }
 
@@ -89,12 +93,13 @@ private:
             recordButton.setButtonText(edit->getTransport().isRecording() ? "Abort" : "Record");
     }
 
+    void onRecordTracks(); ///< called when record action is emitted
     void createOrLoadEdit(juce::File editFile = {});
     void changeListenerCallback(juce::ChangeBroadcaster* source) override
     {
         if (edit != nullptr && source == &edit->getTransport())
         {
-            updatePlayButtonText();
+            updatePlayButton();
             updateRecordButtonText();
         }
         else if (source == &selectionManager)
@@ -105,6 +110,7 @@ private:
                 || dynamic_cast<tracktion_engine::Plugin*> (sel));
         }
     }
+    void buttonClicked (juce::Button* button) override;
 
     void createTracksAndAssignInputs()
     {
@@ -124,11 +130,11 @@ private:
         if (tracktion_engine::getAudioTracks(*edit).size() == 0)
         {
             int trackNum = 0;
-            for (auto instance : edit->getAllInputDevices())
+            for (auto* instance : edit->getAllInputDevices())
             {
                 if (instance->getInputDevice().getDeviceType() == tracktion_engine::InputDevice::physicalMidiDevice)
                 {
-                    if (auto t = EngineHelpers::getOrInsertAudioTrackAt(*edit, trackNum))
+                    if (auto* t = EngineHelpers::getOrInsertAudioTrackAt(*edit, trackNum))
                     {
                         instance->setTargetTrack(*t, 0, true);
                         instance->setRecordingEnabled(*t, true);
