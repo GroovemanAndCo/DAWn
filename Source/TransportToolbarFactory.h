@@ -136,7 +136,7 @@ public:
         if (iconsFromZipFile.size() == 0)
         {
             // If we've not already done so, load all the images from the zip file..
-            juce::ZipFile icons(Helpers::createZipStreamFromEmbeddedResource(BinaryData::namedResourceList[0]).release(), true);
+            juce::ZipFile icons(Helpers::createZipStreamFromEmbeddedResource("res_icons_zip").release(), true);
 
             for (int i = 0; i < icons.getNumEntries(); ++i)
             {

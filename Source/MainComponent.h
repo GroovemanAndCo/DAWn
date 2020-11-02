@@ -95,7 +95,7 @@ private:
 
     void onRecordTracks(); ///< called when record action is emitted
     void setSongTitle(const juce::String& title); ///< Set the song title in the window caption
-    void createOrLoadEdit(juce::File editFile = {});
+    void createOrLoadEdit(juce::File editFile = {}, bool loadOnly=false);
     void changeListenerCallback(juce::ChangeBroadcaster* source) override
     {
         if (edit != nullptr && source == &edit->getTransport())

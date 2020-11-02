@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="akTcEJ" name="DAWn" projectType="guiapp" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="0" jucerFormatVersion="1"
               companyName="Grooveman And Co" companyCopyright="Copyright Fabien 2020 (https://github.com/fab672000). All rights reserved."
               companyWebsite="https://github.com/fab672000" companyEmail="fabien@onepost.net"
               headerPath="C:\SDKs\ASIOSDK2.3\common&#10;../../Source" cppLanguageStandard="17"
               version="0.0.1">
   <MAINGROUP id="QJAxII" name="DAWn">
     <GROUP id="{EC53D676-666E-EBF9-A8C0-A2B98200A763}" name="Source">
+      <GROUP id="{1BE1DA36-DAC8-E582-A373-69560C96CFA3}" name="Images">
+        <FILE id="xIGx2o" name="dawn_icon_lrg.png" compile="0" resource="1"
+              file="Source/Images/dawn_icon_lrg.png"/>
+        <FILE id="xmKul0" name="dawn_icon_sml.png" compile="0" resource="1"
+              file="Source/Images/dawn_icon_sml.png"/>
+        <FILE id="AIQFxP" name="logo-tracktion-engine-powered_3x.png" compile="0"
+              resource="1" file="Source/Images/logo-tracktion-engine-powered_3x.png"/>
+      </GROUP>
       <GROUP id="{D6DEAF66-581E-72FF-3827-015C7D66F847}" name="Utiities">
         <FILE id="OGd2tq" name="Utilities.h" compile="0" resource="0" file="Source/Utilities.h"/>
         <FILE id="oREjE4" name="EditViewState.h" compile="0" resource="0" file="Source/EditViewState.h"/>
@@ -17,8 +25,6 @@
       </GROUP>
       <GROUP id="{FC509DB9-C535-CC23-7A84-F4F5A204F2EA}" name="GUI">
         <GROUP id="{F21F1CEE-719A-04ED-F2EF-4633CB2C641E}" name="Main">
-          <FILE id="HaQFkO" name="MainToolbarListener.h" compile="0" resource="0"
-                file="Source/MainToolbarListener.h"/>
           <FILE id="uwlCxV" name="TransportToolbarFactory.h" compile="0" resource="0"
                 file="Source/TransportToolbarFactory.h"/>
           <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
@@ -109,7 +115,7 @@
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_PLUGINHOST_VST="1" JUCE_PLUGINHOST_VST3="1"
                JUCE_PLUGINHOST_AU="1" JUCE_USE_CAMERA="1"/>
   <EXPORTFORMATS>
-    <VS2019 targetFolder="Builds/VisualStudio2019">
+    <VS2019 targetFolder="Builds/VisualStudio2019" bigIcon="xIGx2o" smallIcon="xmKul0">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="DAWn"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="DAWn"/>
@@ -133,7 +139,8 @@
         <MODULEPATH id="tracktion_graph" path="../tracktion_engine/modules"/>
       </MODULEPATHS>
     </VS2019>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" bigIcon="xIGx2o" smallIcon="xmKul0"
+               userNotes="Fix  me: On Mac OSX, it seems that reloading a project does not refresh the track list properly.">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="DAWn"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="DAWn"/>

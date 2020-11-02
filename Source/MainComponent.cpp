@@ -199,7 +199,7 @@ void MainComponent::buttonClicked(juce::Button* button)
 {
 	const auto name = button->getName().toLowerCase();
 	if (name == "new")  createOrLoadEdit();
-	else if (name == "open") createOrLoadEdit();
+    else if (name == "open") createOrLoadEdit(File{}, true);
 	else if (name == "save")
 	{
 		tracktion_engine::EditFileOperations(*edit).save(true, true, false);
@@ -241,15 +241,16 @@ void MainComponent::onRecordTracks()
 void MainComponent::setSongTitle(const juce::String& title )
 {
     parent.setName ("DAWn Project - " + title );
-
 }
 
-void MainComponent::createOrLoadEdit(juce::File editFile)
+void MainComponent::createOrLoadEdit(juce::File editFile, bool loadOnly)
 {
     if (editFile == juce::File())
     {
-        juce::FileChooser fc("New Edit", juce::File::getSpecialLocation(juce::File::userDocumentsDirectory), "*.tracktionedit");
-		if (fc.browseForFileToSave(false))
+        auto title = juce::String(loadOnly ? "Load" : "New") + " Project";
+        juce::FileChooser fc(title, juce::File::getSpecialLocation(juce::File::userDocumentsDirectory), "*.tracktionedit");
+        auto result = loadOnly ? fc.browseForFileToOpen(): fc.browseForFileToSave(false);
+		if (result)
             editFile = fc.getResult();
         else
             return;

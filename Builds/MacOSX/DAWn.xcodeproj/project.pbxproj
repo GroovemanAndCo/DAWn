@@ -73,6 +73,10 @@
 			isa = PBXBuildFile;
 			fileRef = B56D7C7A9989A8F14D69E2D8;
 		};
+		8A0CC3C423445990E8146963 = {
+			isa = PBXBuildFile;
+			fileRef = DD56E8415EE99E67ADE2ABCD;
+		};
 		6C3247A8FFD7EA9E23F66B9C = {
 			isa = PBXBuildFile;
 			fileRef = 174499882D786638D69BA422;
@@ -262,19 +266,19 @@
 			path = ../../Source/RecordingClipComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
+		0ACCC7B0FA7AC1F11C8A82FA = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_gui_basics";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_gui_basics";
+			sourceTree = "<absolute>";
+		};
 		0D4ED8C00C40C8EEA726B415 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = ClipComponent.cpp;
 			path = ../../Source/ClipComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
-		};
-		11DD33E0F55AC567723DCA4D = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_gui_basics";
-			path = "~/JUCE/modules/juce_gui_basics";
-			sourceTree = "<absolute>";
 		};
 		130DF8DB0AA1660DE443760D = {
 			isa = PBXFileReference;
@@ -304,13 +308,6 @@
 			path = ../../Source/EngineHelpers.cpp;
 			sourceTree = "SOURCE_ROOT";
 		};
-		20C958A313EA79AFE614B04A = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_devices";
-			path = "~/JUCE/modules/juce_audio_devices";
-			sourceTree = "<absolute>";
-		};
 		21D7928C7B84771005B431AE = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -331,6 +328,13 @@
 			name = PlayheadComponent.h;
 			path = ../../Source/PlayheadComponent.h;
 			sourceTree = "SOURCE_ROOT";
+		};
+		2A0814E1A449224A9F38FC15 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_core";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_core";
+			sourceTree = "<absolute>";
 		};
 		2C3B66D2A2CA48B383AF401D = {
 			isa = PBXFileReference;
@@ -366,6 +370,13 @@
 			name = MidiClipComponent.cpp;
 			path = ../../Source/MidiClipComponent.cpp;
 			sourceTree = "SOURCE_ROOT";
+		};
+		30D8CA25DF1D73EBB15A4B49 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_formats";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_formats";
+			sourceTree = "<absolute>";
 		};
 		32F513853ABBD5D585EB03B5 = {
 			isa = PBXFileReference;
@@ -416,19 +427,19 @@
 			path = "../../JuceLibraryCode/include_tracktion_engine_plugins.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		3B46299A07899EAC38955AB4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "dawn_icon_lrg.png";
+			path = "../../Source/Images/dawn_icon_lrg.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		3D4DF84A4127588CB0C298C8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = MainComponent.h;
 			path = ../../Source/MainComponent.h;
 			sourceTree = "SOURCE_ROOT";
-		};
-		4279DB0154002C747F5C4C0B = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_graphics";
-			path = "~/JUCE/modules/juce_graphics";
-			sourceTree = "<absolute>";
 		};
 		47387E20AD662DF93959FABB = {
 			isa = PBXFileReference;
@@ -451,18 +462,18 @@
 			path = "../../JuceLibraryCode/include_juce_audio_devices.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		4FF73D6C0B5595F1C27514BA = {
+		4E20BBD3B2F196821205A244 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_audio_formats";
-			path = "~/JUCE/modules/juce_audio_formats";
+			name = "juce_audio_processors";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_processors";
 			sourceTree = "<absolute>";
 		};
-		56402321FA1EEAB042DE2C6B = {
+		4FBA6CF0D8683BD471393CEE = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_core";
-			path = "~/JUCE/modules/juce_core";
+			name = "juce_data_structures";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_data_structures";
 			sourceTree = "<absolute>";
 		};
 		56405FBA7DA6624822E90314 = {
@@ -479,11 +490,11 @@
 			path = ../../Source/TransportToolbarFactory.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		63F432984A8A1BE08E0B7561 = {
+		67817E0FCB51CE99C0BF992B = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_audio_basics";
-			path = "~/JUCE/modules/juce_audio_basics";
+			name = "juce_audio_devices";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_devices";
 			sourceTree = "<absolute>";
 		};
 		67BAF25CC927EAAD7EFA9E41 = {
@@ -528,13 +539,6 @@
 			path = "../../JuceLibraryCode/include_juce_osc.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		7744DFE7813E0C1B31CE486E = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.c.h;
-			name = MainToolbarListener.h;
-			path = ../../Source/MainToolbarListener.h;
-			sourceTree = "SOURCE_ROOT";
-		};
 		7BE7A05F4AE30CA26E7650B1 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -556,6 +560,13 @@
 			path = ../../Source/RecordingClipComponent.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		84DBA0F260FE13AB4822FCCE = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_video";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_video";
+			sourceTree = "<absolute>";
+		};
 		88EEB788182577E0357E0F8C = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -568,6 +579,20 @@
 			lastKnownFileType = file;
 			name = "tracktion_engine";
 			path = "../../../tracktion_engine/modules/tracktion_engine";
+			sourceTree = "SOURCE_ROOT";
+		};
+		8A5F7C721E8E8388BB2ECC20 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_gui_extra";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_gui_extra";
+			sourceTree = "<absolute>";
+		};
+		8B369BB1412F8348C9BF277B = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "dawn_icon_sml.png";
+			path = "../../Source/Images/dawn_icon_sml.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		8B8B52996B83DA8E6A32E2DC = {
@@ -584,26 +609,12 @@
 			path = ../../Source/Utilities.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		8E02E25EE76A7FCEFA1CDDAD = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_data_structures";
-			path = "~/JUCE/modules/juce_data_structures";
-			sourceTree = "<absolute>";
-		};
 		8F14EE6BF154EA2799E96E0A = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = "include_tracktion_graph.cpp";
 			path = "../../JuceLibraryCode/include_tracktion_graph.cpp";
 			sourceTree = "SOURCE_ROOT";
-		};
-		8F753F2382D8CE5A2D8AF111 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_gui_extra";
-			path = "~/JUCE/modules/juce_gui_extra";
-			sourceTree = "<absolute>";
 		};
 		9265CD1D67A6CE3E206DAE07 = {
 			isa = PBXFileReference;
@@ -618,6 +629,13 @@
 			name = WebKit.framework;
 			path = System/Library/Frameworks/WebKit.framework;
 			sourceTree = SDKROOT;
+		};
+		948C3DBA3B4594549FE33AF4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "logo-tracktion-engine-powered_3x.png";
+			path = "../../Source/Images/logo-tracktion-engine-powered_3x.png";
+			sourceTree = "SOURCE_ROOT";
 		};
 		94BCF5030D62AFAF5A06B3E4 = {
 			isa = PBXFileReference;
@@ -660,13 +678,6 @@
 			name = IOKit.framework;
 			path = System/Library/Frameworks/IOKit.framework;
 			sourceTree = SDKROOT;
-		};
-		AC584841AEE8BA81C6ADF8E0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_utils";
-			path = "~/JUCE/modules/juce_audio_utils";
-			sourceTree = "<absolute>";
 		};
 		AC7EDF5DA049F896188D265D = {
 			isa = PBXFileReference;
@@ -731,6 +742,13 @@
 			path = "../../JuceLibraryCode/include_juce_data_structures.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		B86C6ED9E9364CF9DB97F3C3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_basics";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_basics";
+			sourceTree = "<absolute>";
+		};
 		C13CF5F461870EA604ACB75B = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -744,13 +762,6 @@
 			name = PluginMenu.h;
 			path = ../../Source/PluginMenu.h;
 			sourceTree = "SOURCE_ROOT";
-		};
-		C7DC622CABA3FC54B0BC43D0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_osc";
-			path = "~/JUCE/modules/juce_osc";
-			sourceTree = "<absolute>";
 		};
 		CA6C3E669F70A78A30AA5CE6 = {
 			isa = PBXFileReference;
@@ -801,12 +812,26 @@
 			path = System/Library/Frameworks/AudioUnit.framework;
 			sourceTree = SDKROOT;
 		};
+		D5D65FB89A7834C95DF05593 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_graphics";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_graphics";
+			sourceTree = "<absolute>";
+		};
 		D62D44B328604C8E5158A299 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
 			name = EditComponent.h;
 			path = ../../Source/EditComponent.h;
 			sourceTree = "SOURCE_ROOT";
+		};
+		D8827F1705B99BCDE6730B3E = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_utils";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_utils";
+			sourceTree = "<absolute>";
 		};
 		DB5C763E46072272231AD939 = {
 			isa = PBXFileReference;
@@ -829,6 +854,13 @@
 			path = ../../Source/AudioProcessorEditorComp.h;
 			sourceTree = "SOURCE_ROOT";
 		};
+		DD56E8415EE99E67ADE2ABCD = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.icns;
+			name = Icon.icns;
+			path = Icon.icns;
+			sourceTree = "SOURCE_ROOT";
+		};
 		DDEF6D7F6638FD121AC27117 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.cpp.cpp;
@@ -843,26 +875,12 @@
 			path = "../../JuceLibraryCode/include_juce_events.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		E22001681FC0AE379AD5357C = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_dsp";
-			path = "~/JUCE/modules/juce_dsp";
-			sourceTree = "<absolute>";
-		};
 		E242FFD8A9D2EFB100CC4CDB = {
 			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
 			name = AVKit.framework;
 			path = System/Library/Frameworks/AVKit.framework;
 			sourceTree = SDKROOT;
-		};
-		E308DA09B32DDD4DCAEDC767 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_video";
-			path = "~/JUCE/modules/juce_video";
-			sourceTree = "<absolute>";
 		};
 		E39CF4523FE537ED8EFB7637 = {
 			isa = PBXFileReference;
@@ -871,11 +889,11 @@
 			path = System/Library/Frameworks/DiscRecording.framework;
 			sourceTree = SDKROOT;
 		};
-		E4CBF510A5C439907730EFA4 = {
+		E52D17D26B9A58C224F9CA1C = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_events";
-			path = "~/JUCE/modules/juce_events";
+			name = "juce_dsp";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_dsp";
 			sourceTree = "<absolute>";
 		};
 		E6075DECC19DE1140A55BA38 = {
@@ -891,6 +909,13 @@
 			name = "include_tracktion_engine_utils.cpp";
 			path = "../../JuceLibraryCode/include_tracktion_engine_utils.cpp";
 			sourceTree = "SOURCE_ROOT";
+		};
+		E85197C7DD5F3B3AE57DEDC3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_events";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_events";
+			sourceTree = "<absolute>";
 		};
 		E8FE9444365D603E9FDEAAD2 = {
 			isa = PBXFileReference;
@@ -927,13 +952,6 @@
 			path = "../../JuceLibraryCode/include_juce_graphics.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
-		F0783E9C4535B64E91BE38C4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_processors";
-			path = "~/JUCE/modules/juce_audio_processors";
-			sourceTree = "<absolute>";
-		};
 		F15955143A81CDD25C1A558E = {
 			isa = PBXFileReference;
 			lastKnownFileType = wrapper.framework;
@@ -947,6 +965,13 @@
 			name = MidiClipComponent.h;
 			path = ../../Source/MidiClipComponent.h;
 			sourceTree = "SOURCE_ROOT";
+		};
+		F906B459F3C07BC6B7510E25 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_osc";
+			path = "/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_osc";
+			sourceTree = "<absolute>";
 		};
 		F9D8E09239A08ECCB0F9BC94 = {
 			isa = PBXFileReference;
@@ -983,6 +1008,16 @@
 			path = "../../JuceLibraryCode/include_juce_audio_utils.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
+		03B90250765B1477AD72D8AC = {
+			isa = PBXGroup;
+			children = (
+				3B46299A07899EAC38955AB4,
+				8B369BB1412F8348C9BF277B,
+				948C3DBA3B4594549FE33AF4,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		CF376842446238E2A188A3C5 = {
 			isa = PBXGroup;
 			children = (
@@ -997,7 +1032,6 @@
 		D7D780F97863D57E9A42FF71 = {
 			isa = PBXGroup;
 			children = (
-				7744DFE7813E0C1B31CE486E,
 				5CC054F0608D64BEB6ED02B0,
 				3D4DF84A4127588CB0C298C8,
 				CA6C3E669F70A78A30AA5CE6,
@@ -1101,6 +1135,7 @@
 		E9BECF9E81A8DD92817E8F2E = {
 			isa = PBXGroup;
 			children = (
+				03B90250765B1477AD72D8AC,
 				CF376842446238E2A188A3C5,
 				AF95873560BD399B56535E98,
 				6F9205A7F7274433B1C65AD2,
@@ -1119,20 +1154,20 @@
 		2674B36950905293E9870089 = {
 			isa = PBXGroup;
 			children = (
-				63F432984A8A1BE08E0B7561,
-				20C958A313EA79AFE614B04A,
-				4FF73D6C0B5595F1C27514BA,
-				F0783E9C4535B64E91BE38C4,
-				AC584841AEE8BA81C6ADF8E0,
-				56402321FA1EEAB042DE2C6B,
-				8E02E25EE76A7FCEFA1CDDAD,
-				E22001681FC0AE379AD5357C,
-				E4CBF510A5C439907730EFA4,
-				4279DB0154002C747F5C4C0B,
-				11DD33E0F55AC567723DCA4D,
-				8F753F2382D8CE5A2D8AF111,
-				C7DC622CABA3FC54B0BC43D0,
-				E308DA09B32DDD4DCAEDC767,
+				B86C6ED9E9364CF9DB97F3C3,
+				67817E0FCB51CE99C0BF992B,
+				30D8CA25DF1D73EBB15A4B49,
+				4E20BBD3B2F196821205A244,
+				D8827F1705B99BCDE6730B3E,
+				2A0814E1A449224A9F38FC15,
+				4FBA6CF0D8683BD471393CEE,
+				E52D17D26B9A58C224F9CA1C,
+				E85197C7DD5F3B3AE57DEDC3,
+				D5D65FB89A7834C95DF05593,
+				0ACCC7B0FA7AC1F11C8A82FA,
+				8A5F7C721E8E8388BB2ECC20,
+				F906B459F3C07BC6B7510E25,
+				84DBA0F260FE13AB4822FCCE,
 				899BFD5EA4C28B55881C54AF,
 				47387E20AD662DF93959FABB,
 			);
@@ -1177,6 +1212,7 @@
 			children = (
 				6DF87CC642DE274AB2C6AB7F,
 				B56D7C7A9989A8F14D69E2D8,
+				DD56E8415EE99E67ADE2ABCD,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1250,7 +1286,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
-					"JUCE_DISPLAY_SPLASH_SCREEN=1",
+					"JUCE_DISPLAY_SPLASH_SCREEN=0",
 					"JUCE_USE_DARK_SPLASH_SCREEN=1",
 					"JUCE_PROJUCER_VERSION=0x60004",
 					"JUCE_MODULE_AVAILABLE_juce_audio_basics=1",
@@ -1279,9 +1315,10 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/VST_SDK/VST2_SDK",
 					"../../JuceLibraryCode",
-					"$(HOME)/JUCE/modules",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules",
 					"../../../tracktion_engine/modules",
 					"C:\SDKs\ASIOSDK2.3\common",
 					"../../Source",
@@ -1292,9 +1329,10 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
-					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/VST_SDK/VST2_SDK",
 					"../../JuceLibraryCode",
-					"$(HOME)/JUCE/modules",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules",
 					"../../../tracktion_engine/modules",
 					"C:\SDKs\ASIOSDK2.3\common",
 					"../../Source",
@@ -1332,7 +1370,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JucePlugin_Build_Unity=0",
-					"JUCE_DISPLAY_SPLASH_SCREEN=1",
+					"JUCE_DISPLAY_SPLASH_SCREEN=0",
 					"JUCE_USE_DARK_SPLASH_SCREEN=1",
 					"JUCE_PROJUCER_VERSION=0x60004",
 					"JUCE_MODULE_AVAILABLE_juce_audio_basics=1",
@@ -1361,9 +1399,10 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/VST_SDK/VST2_SDK",
 					"../../JuceLibraryCode",
-					"$(HOME)/JUCE/modules",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules",
 					"../../../tracktion_engine/modules",
 					"C:\SDKs\ASIOSDK2.3\common",
 					"../../Source",
@@ -1375,9 +1414,10 @@
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_HEADER_SEARCH_PATHS = (
-					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules/juce_audio_processors/format_types/VST3_SDK",
+					"/Users/fab/SDKs/VST_SDK/VST2_SDK",
 					"../../JuceLibraryCode",
-					"$(HOME)/JUCE/modules",
+					"/Users/fab/SDKs/GitHub/Audio/tracktion_engine/modules/juce/modules",
 					"../../../tracktion_engine/modules",
 					"C:\SDKs\ASIOSDK2.3\common",
 					"../../Source",
@@ -1509,6 +1549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272D25CFCEF8CDF70F4F517C,
+				8A0CC3C423445990E8146963,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

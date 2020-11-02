@@ -8,11 +8,20 @@
 
 namespace BinaryData
 {
+    extern const char*   dawn_icon_lrg_png;
+    const int            dawn_icon_lrg_pngSize = 440716;
+
+    extern const char*   dawn_icon_sml_png;
+    const int            dawn_icon_sml_pngSize = 17404;
+
+    extern const char*   logotracktionenginepowered_3x_png;
+    const int            logotracktionenginepowered_3x_pngSize = 25797;
+
     extern const char*   res_icons_zip;
     const int            res_icons_zipSize = 86071;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 1;
+    const int namedResourceListSize = 4;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
