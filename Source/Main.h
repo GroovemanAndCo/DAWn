@@ -27,21 +27,22 @@ class DAWnApplication : public juce::JUCEApplication
     void parseCommandLine(const juce::String& commandLine); ///< parse command line arguments 
 
 public:
-    //==============================================================================
-    DAWnApplication() {}
+    DAWnApplication() {} ///< Add initialization code that must execute prior to initialise() here
 
     const juce::String getApplicationName() override { return ProjectInfo::projectName; }
     const juce::String getApplicationVersion() override { return ProjectInfo::versionString; }
-	
+
+    /// Called when another instance of the app is launched while this one is running
     bool moreThanOneInstanceAllowed() override { return true; }
 
     /// Parse command line parameters and then create the main window
     void initialise(const juce::String& commandLine) override;
 
-    /// Destroy the mainWindow 
+    /// Deletes the mainWindow unique ptr, add news cleanup code here
     void shutdown() override;
-    //==============================================================================
-    void systemRequestedQuit() override; ///< called when system asks us to quit, reply with calling quit() if ok to quit
+
+    /// called when system asks us to quit, reply with calling quit() if ok to quit
+    void systemRequestedQuit() override; 
 
 	/** When another instance of the app is launched while this one is running,
      *  this method is invoked, and the commandLine parameter tells you what the other instance's command-line arguments were.

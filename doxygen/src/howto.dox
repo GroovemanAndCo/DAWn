@@ -1,4 +1,4 @@
-/*! @page how_to How to build DAWn
+/*! @page howto How to build DAWn
 
 1. Prerequisites:
   - You will need to install the tracktion engine full distribution from:
@@ -12,8 +12,9 @@
   ./DAWn/
 
 2. Build:
- Go the Build folder and choose an OS build project that matches your current OS
+  - Open DAWN.jucer with Projucer and generate a build target for your OS
+  - Under the Build folder, open your matching OS build project
  
-3. Test and then start to contribute !
+3. Test your build and then start to contribute and propose PR's!
 
 */

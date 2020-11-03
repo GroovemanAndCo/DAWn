@@ -8,6 +8,12 @@
               version="0.0.1">
   <MAINGROUP id="QJAxII" name="DAWn">
     <GROUP id="{EC53D676-666E-EBF9-A8C0-A2B98200A763}" name="Source">
+      <GROUP id="{CEBDF1A2-17D4-7D81-BFF9-0878C1850749}" name="Documentation">
+        <FILE id="mkGMpf" name="coding.dox" compile="0" resource="0" file="doxygen/src/coding.dox"/>
+        <FILE id="gvge5s" name="howto.dox" compile="0" resource="0" file="doxygen/src/howto.dox"/>
+        <FILE id="hAbgri" name="intro.dox" compile="0" resource="0" file="doxygen/src/intro.dox"/>
+        <FILE id="yNVU9s" name="mainpage.dox" compile="0" resource="0" file="doxygen/src/mainpage.dox"/>
+      </GROUP>
       <GROUP id="{1BE1DA36-DAC8-E582-A373-69560C96CFA3}" name="Images">
         <FILE id="xIGx2o" name="dawn_icon_lrg.png" compile="0" resource="1"
               file="Source/Images/dawn_icon_lrg.png"/>

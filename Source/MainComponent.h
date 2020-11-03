@@ -51,7 +51,9 @@
 #include "TransportToolbarFactory.h"
 
 
-//==============================================================================
+/**
+ This is the top level JUCE Component window that is created from the MainWindow instance
+*/
 class MainComponent : public juce::Component, public juce::Button::Listener, private juce::ChangeListener
 {
 public:
