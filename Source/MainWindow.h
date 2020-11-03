@@ -29,11 +29,13 @@ class MainWindow : public juce::DocumentWindow
 public:
     MainWindow(juce::String name);
 
+    /**
+     * This is called when the user tries to close this window.
+     * Here, we'll just ask the app to quit when this happens by calling systemRequestedQuit(). 
+     * But you can change this to do whatever you need.
+     */
     void closeButtonPressed() override
     {
-        // This is called when the user tries to close this window. Here, we'll just
-        // ask the app to quit when this happens, but you can change this to do
-        // whatever you need.
         juce::JUCEApplication::getInstance()->systemRequestedQuit();
     }
 

@@ -12,14 +12,14 @@
  * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.\
+ *
  */
 
  /*
   ==============================================================================
 
     This file contains the basic startup code for a JUCE application.
-
   ==============================================================================
 */
 
@@ -28,8 +28,8 @@
 using namespace juce;
 
 //==============================================================================
-
-// This macro generates the main() routine that launches the app.
+    
+/// This macro generates the main() routine that launches the app.
 START_JUCE_APPLICATION (DAWnApplication)
 
 
@@ -48,6 +48,7 @@ void DAWnApplication::initialise(const juce::String& commandLine)
 void DAWnApplication::shutdown()
 {
     mainWindow = nullptr; // (deletes our window)
+
 }
 
 void DAWnApplication::systemRequestedQuit()

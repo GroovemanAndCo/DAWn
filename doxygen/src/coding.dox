@@ -8,6 +8,7 @@
 		- If statements (no statement on a different line without brackets), only use no bracket for a trivial statement on the same line.
 		- Use of auto (we suggest to follow LLVM readability standards such as using const auto and auto* instead of auto when applicable).
 		- Use auto as much as you feel confortable with: we assume that you know that auto v=0 gives an int and know how to use unsigned values, some bool values are sometimes more readable not using auto.
+		- We are flexible with the c style comment structure and alignment, you don't need to rewrite your auto-generated comments to make them fit a particular layout.
 
 		A full discussion on the topic that lead to the JUCE original document can be found <a href="https://JUCE.com/discover/stories/coding-standards">Here</a>
 
@@ -145,16 +146,6 @@
 	@code
 	// yes!
 	//no!
-	@endcode
-	
-	- Multi-line comments are aligned vertically on the left, e.g.
-	@code
-	/* 
-		This is correct
-	*/
-
-	/* This is wrong!
-	 */
 	@endcode
 	
 	- Hexadecimal is usually written in lower-case, e.g. 0xabcdef

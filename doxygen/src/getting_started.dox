@@ -1,0 +1,38 @@
+/**
+
+@page getting-started Getting Started
+
+@section app-start Application start 
+
+@subsection app-cls The DAWnApplication class
+
+The main program entry point is defined in the file named Main.cpp which implements the DAWnApplication class and declares the main() entry and event loop as shown below.<br/>
+The DAWnApplication class directly inherits from the JUCEApplication class.
+
+@code
+    START_JUCE_APPLICATION (DAWnApplication)
+@endcode
+
+Then your application will initialise and provide a chance to parse optional command line arguments in  DAWnApplication::initialise().
+@code
+    // This method is where you should put your application's initialisation code..
+    parseCommandLine(commandLine);
+    mainWindow.reset(new MainWindow(getApplicationName())); // create the top-level main window 
+@endcode
+
+@subsection mainwnd The MainWindow class
+The Mainwindow class is in charge of instanciating the concrete top-level JUCE Component container
+@code
+    setContentOwned(new MainComponent(*this), true);
+@endcode
+
+@subsection maincmp The MainComponent class
+Then the MainWindow class is creating our top-level JUCE component defined in the MainComponent class.
+
+@section app-exit Application exit
+When your application terminates gracefully(e.g. because of a main  window closing), it will first call DAWnApplication::systemRequestedQuit(),
+you can simply cancel this event by not calling JUCEApplication::quit() in this code.<br/>
+Then when the program is about to unconditionally exit, it will call void DAWnApplication::shutdown() which leaves you with a chance of freeing up whatever resources you allocated.
+
+
+*/

@@ -8,7 +8,9 @@ DAWn reuses fundations from the tracktion engine:
 @image html logo.png
 
 @par Table of Contents
-  - @ref coding
-  - @ref howto
   - @ref intro
+  - @ref howto
+  - @ref coding
+  - @ref getting-started
+
 */

@@ -10,6 +10,9 @@
     <GROUP id="{EC53D676-666E-EBF9-A8C0-A2B98200A763}" name="Source">
       <GROUP id="{CEBDF1A2-17D4-7D81-BFF9-0878C1850749}" name="Documentation">
         <FILE id="mkGMpf" name="coding.dox" compile="0" resource="0" file="doxygen/src/coding.dox"/>
+        <FILE id="rHSCNu" name="Doxyfile" compile="0" resource="0" file="doxygen/Doxyfile"/>
+        <FILE id="hbwujM" name="getting_started.dox" compile="0" resource="0"
+              file="doxygen/src/getting_started.dox"/>
         <FILE id="gvge5s" name="howto.dox" compile="0" resource="0" file="doxygen/src/howto.dox"/>
         <FILE id="hAbgri" name="intro.dox" compile="0" resource="0" file="doxygen/src/intro.dox"/>
         <FILE id="yNVU9s" name="mainpage.dox" compile="0" resource="0" file="doxygen/src/mainpage.dox"/>

@@ -1,4 +1,3 @@
-#pragma once
 /*
  * This file is part of the DAWn distribution (https://github.com/GroovemanAndCo/DAWn).
  * Copyright (c) 2020 Fabien (https://github.com/fab672000)
@@ -15,11 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
+#pragma once
 #include <JuceHeader.h>
 
 /**
-* Transport toolbar for the DAW main window
-*/
+ * Transport toolbar for the DAW main window
+ */
 class TransportToolbarItemFactory : public juce::ToolbarItemFactory
 {
 public:
@@ -155,8 +155,6 @@ public:
     	button->addListener(toolbarButtonsListener);
     	
     	return button;
-
-    	
     }
 };
 

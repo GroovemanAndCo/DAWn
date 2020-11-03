@@ -20,8 +20,8 @@
 #include "MainWindow.h"
 
 /**
- * The main DAWn JUCEApplication derived class.
- */
+  The main DAWn JUCEApplication derived class.
+*/
 class DAWnApplication : public juce::JUCEApplication
 {
     void parseCommandLine(const juce::String& commandLine); ///< parse command line arguments 
