@@ -19,7 +19,7 @@
 
 using namespace juce;
 
-MainComponent::MainComponent( Component& par) : factory(this), parent(par)
+MainComponent::MainComponent( Component& par) : factory(this, this), parent(par)
 {
 	
     settingsButton.onClick = [this] { EngineHelpers::showAudioDeviceSettings(engine); };
@@ -229,6 +229,15 @@ void MainComponent::buttonClicked(juce::Button* button)
 	{
 		TRACKTION_LOG(juce::String("Unknown Button " + button->getName() + " pressed"));
 	}
+}
+
+void MainComponent::sliderValueChanged(juce::Slider* slider)
+{
+    // tempo slider changed:
+    if (slider->getName()== TransportToolbarItemFactory::TempoSliderName)
+    {
+        if (edit != nullptr) edit->tempoSequence.getTempos()[0]->setBpm (slider->getValue());
+    }
 }
 
 void MainComponent::onRecordTracks()

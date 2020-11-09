@@ -54,7 +54,10 @@
 /**
  This is the top level JUCE Component window that is created from the MainWindow instance
 */
-class MainComponent : public juce::Component, public juce::Button::Listener, private juce::ChangeListener
+class MainComponent : public juce::Component
+    , public  juce::Button::Listener
+    , public  juce::Slider::Listener
+    , private juce::ChangeListener
 {
 public:
     //==============================================================================
@@ -66,6 +69,10 @@ public:
 
 private:
     //==============================================================================
+    void buttonClicked (juce::Button* button) override;
+    void sliderValueChanged(juce::Slider* slider) override;
+    //==============================================================================
+
     tracktion_engine::Engine engine{ ProjectInfo::projectName, std::make_unique<ExtendedUIBehaviour>(), nullptr };
     tracktion_engine::SelectionManager selectionManager{ engine };
     std::unique_ptr<tracktion_engine::Edit> edit;
@@ -85,14 +92,13 @@ private:
     void updatePlayButton()
     {
         if (edit == nullptr) return;
-    	
-            playPauseButton.setButtonText(edit->getTransport().isPlaying() ? "Stop" : "Play");
+        playPauseButton.setButtonText(edit->getTransport().isPlaying() ? "Stop" : "Play");
     }
 
     void updateRecordButtonText()
     {
-        if (edit != nullptr)
-            recordButton.setButtonText(edit->getTransport().isRecording() ? "Abort" : "Record");
+        if (edit == nullptr) return;
+        recordButton.setButtonText(edit->getTransport().isRecording() ? "Abort" : "Record");
     }
 
     void onRecordTracks(); ///< called when record action is emitted
@@ -113,7 +119,6 @@ private:
                 || dynamic_cast<tracktion_engine::Plugin*> (sel));
         }
     }
-    void buttonClicked (juce::Button* button) override;
 
     void createTracksAndAssignInputs()
     {

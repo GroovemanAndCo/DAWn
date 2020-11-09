@@ -16,6 +16,7 @@
  */
 #pragma once
 #include <JuceHeader.h>
+#include "ToolbarSlider.h"
 
 /**
  * Transport toolbar for the DAW main window
@@ -23,7 +24,8 @@
 class TransportToolbarItemFactory : public juce::ToolbarItemFactory
 {
 public:
-    TransportToolbarItemFactory(juce::Button::Listener* listener): toolbarButtonsListener(listener) {}
+    TransportToolbarItemFactory(juce::Button::Listener* listener, juce::Slider::Listener* sliderListener)
+        : _toolbarButtonsListener(listener), _toolbarSliderListener(sliderListener) {}
 
     //==============================================================================
     // Each type of item a toolbar can contain must be given a unique ID. These
@@ -44,8 +46,9 @@ public:
         media_stop     = 23, 
         media_pause    = 24,
         media_forward  = 25,
-        media_backward = 26
+        media_backward = 26,
 
+        tempo          = 31
     };
 
     void getAllToolbarItemIds(juce::Array<int>& ids) override
@@ -76,6 +79,8 @@ public:
         //ids.add(separatorBarId);
         //ids.add(spacerId);
         //ids.add(flexibleSpacerId);
+        ids.add(spacerId       );
+        ids.add(tempo          );
     }
 
     void getDefaultItemSet(juce::Array<int>& ids) override
@@ -96,6 +101,8 @@ public:
         ids.add(media_record   );
         //ids.add(media_pause    );
         //ids.add(media_forward);
+        ids.add(spacerId       );
+        ids.add(tempo          );
     }
 
     juce::ToolbarItemComponent* createItem(int itemId) override
@@ -117,23 +124,44 @@ public:
             case media_pause:       return createButtonFromZipFileSVG(itemId, "pause", "media-playback-pause.svg");
             case media_forward:     return createButtonFromZipFileSVG(itemId, "forward", "media-seek-forward.svg");
             case media_backward:    return createButtonFromZipFileSVG(itemId, "backward", "media-seek-backward.svg");
-
+            case tempo:             return createTempoSlider(itemId);
             default:                break;
         }
 
         return nullptr;
     }
 
-  private:
-    juce::StringArray iconNames;
-    juce::OwnedArray<juce::Drawable> iconsFromZipFile;
-    juce::Button::Listener* toolbarButtonsListener;
+    [[nodiscard]] juce::Slider* getTempoSlider() const {}
+    inline const static juce::String TempoSliderName = "Global Tempo";
+
+
+    private:
+    juce::StringArray _iconNames;
+    juce::OwnedArray<juce::Drawable> _iconsFromZipFile;
+    juce::Button::Listener* _toolbarButtonsListener;
+    juce::Slider::Listener* _toolbarSliderListener;
+    juce::Slider* _slider;
 
     // This is a little utility to create a button with one of the SVG images in
-    // our embedded ZIP file "icons.zip"
-    juce::ToolbarButton* createButtonFromZipFileSVG(const int itemId, const juce::String& text, const juce::String& filename)
+    // our embedded ZIP file "res_icons_zip"
+    juce::ToolbarItemComponent* createTempoSlider(const int itemId)
     {
-        if (iconsFromZipFile.size() == 0)
+        _slider = new juce::Slider(); // weak ptr
+        _slider->setName(TempoSliderName);
+        _slider->setSliderStyle(juce::Slider::SliderStyle::LinearBar);
+        _slider->setRange(10,250, 0.001);
+        _slider->setValue(120.0, juce::NotificationType::dontSendNotification);
+        _slider->addListener(_toolbarSliderListener);
+        auto* toolbarSlider = new ToolbarSlider(_slider, itemId, 60, 40, 80);
+
+        return toolbarSlider;
+    }
+
+    // This is a little utility to create a button with one of the SVG images in
+    // our embedded ZIP file "res_icons_zip"
+    juce::ToolbarItemComponent* createButtonFromZipFileSVG(const int itemId, const juce::String& text, const juce::String& filename)
+    {
+        if (_iconsFromZipFile.size() == 0)
         {
             // If we've not already done so, load all the images from the zip file..
             juce::ZipFile icons(Helpers::createZipStreamFromEmbeddedResource("res_icons_zip").release(), true);
@@ -144,15 +172,15 @@ public:
 
                 if (svgFileStream.get() != nullptr)
                 {
-                    iconNames.add(icons.getEntry(i)->filename);
-                    iconsFromZipFile.add(juce::Drawable::createFromImageDataStream(*svgFileStream));
+                    _iconNames.add(icons.getEntry(i)->filename);
+                    _iconsFromZipFile.add(juce::Drawable::createFromImageDataStream(*svgFileStream));
                 }
             }
         }
 
-        auto* image = iconsFromZipFile[iconNames.indexOf(filename)];
+        auto* image = _iconsFromZipFile[_iconNames.indexOf(filename)];
         auto* button = new juce::ToolbarButton(itemId, text, image->createCopy(), {});
-    	button->addListener(toolbarButtonsListener);
+    	button->addListener(_toolbarButtonsListener);
     	
     	return button;
     }

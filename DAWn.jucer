@@ -33,9 +33,12 @@
               file="Source/EngineHelpers.cpp"/>
       </GROUP>
       <GROUP id="{FC509DB9-C535-CC23-7A84-F4F5A204F2EA}" name="GUI">
-        <GROUP id="{F21F1CEE-719A-04ED-F2EF-4633CB2C641E}" name="Main">
+        <GROUP id="{8519AEF3-4218-F951-B5F3-2BEA7081ACE1}" name="Widgets">
+          <FILE id="tIxCqB" name="ToolbarSlider.h" compile="0" resource="0" file="Source/ToolbarSlider.h"/>
           <FILE id="uwlCxV" name="TransportToolbarFactory.h" compile="0" resource="0"
                 file="Source/TransportToolbarFactory.h"/>
+        </GROUP>
+        <GROUP id="{F21F1CEE-719A-04ED-F2EF-4633CB2C641E}" name="Main">
           <FILE id="pf11iQ" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
           <FILE id="qTv4fw" name="Main.h" compile="0" resource="0" file="Source/Main.h"/>
           <FILE id="lGoN2z" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
