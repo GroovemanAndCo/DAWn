@@ -269,9 +269,9 @@ void MainComponent::createOrLoadEdit(juce::File editFile, bool loadOnly)
     editComponent = nullptr;
 
     if (editFile.existsAsFile())
-        edit = tracktion_engine::loadEditFromFile(engine, editFile);
+        edit = std::make_unique<tracktion_engine::Edit> (engine, ValueTree::fromXml (editFile.loadFileAsString()), tracktion_engine::Edit::forEditing, nullptr, 0);
     else
-        edit = tracktion_engine::createEmptyEdit(engine, editFile);
+        edit = std::make_unique<tracktion_engine::Edit> (engine, tracktion_engine::createEmptyEdit (engine), tracktion_engine::Edit::forEditing, nullptr, 0);
 
     edit->editFileRetriever = [editFile] { return editFile; };
     edit->playInStopEnabled = true;
@@ -296,5 +296,6 @@ void MainComponent::createOrLoadEdit(juce::File editFile, bool loadOnly)
 	editComponent->getEditViewState().showWaveDevices = true;
 
     addAndMakeVisible(*editComponent);
+    resized();
 }
 
